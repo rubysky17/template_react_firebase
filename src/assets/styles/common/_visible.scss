@@ -1,0 +1,72 @@
+@import "./variables";
+@import "./mixins";
+
+.#{$prefix} {
+  &-visible {
+    visibility: visible;
+  }
+
+  &-invisible {
+    visibility: hidden;
+  }
+}
+
+@include breakpoint(mobile) {
+  .#{$prefix}-sm {
+    &-visible {
+      visibility: visible;
+    }
+
+    &-invisible {
+      visibility: hidden;
+    }
+  }
+}
+
+@include breakpoint(tablet) {
+  .#{$prefix}-md {
+    &-visible {
+      visibility: visible;
+    }
+
+    &-invisible {
+      visibility: hidden;
+    }
+  }
+}
+
+@include breakpoint(bigTablet) {
+  .#{$prefix}-lg {
+    &-visible {
+      visibility: visible;
+    }
+
+    &-invisible {
+      visibility: hidden;
+    }
+  }
+}
+
+@include breakpoint(desktop) {
+  .#{$prefix}-xl {
+    &-visible {
+      visibility: visible;
+    }
+
+    &-invisible {
+      visibility: hidden;
+    }
+  }
+}
+
+@include breakpoint(bigscreen) {
+  .#{$prefix}-2xl {
+    &-visible {
+      visibility: visible;
+    }
+
+    &-invisible {
+      visibility: hidden;
+    }
+  }
+}

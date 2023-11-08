@@ -1,0 +1,101 @@
+@import "./_variables";
+@import "./_mixins";
+
+.#{$prefix} {
+  &-row {
+    display: flex;
+    display: -ms-flexbox;
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    margin-top: 0;
+    // margin-right: calc(#{$gutter-row} * -0.5) !important;
+    // margin-left: calc(#{$gutter-row} * -0.5) !important;
+  }
+}
+
+@mixin col {
+  // padding-left: 15px;
+  // padding-right: 15px;
+  flex: 0 0 auto;
+}
+
+@for $i from 1 through 12 {
+  .#{$prefix} {
+    &-col-#{$i} {
+      @include col;
+      width: calc(($i * 100%) / 12);
+    }
+  }
+}
+
+@include breakpoint(smallmobile) {
+  @for $i from 1 through 12 {
+    .#{$prefix}-xs {
+      &-col-#{$i} {
+        @include col;
+        width: calc(($i * 100%) / 12);
+      }
+    }
+  }
+}
+
+@include breakpoint(mobile) {
+  @for $i from 1 through 12 {
+    .#{$prefix}-sm {
+      &-col-#{$i} {
+        @include col;
+        width: calc(($i * 100%) / 12);
+      }
+    }
+  }
+}
+
+@include breakpoint(tablet) {
+  @for $i from 1 through 12 {
+    .#{$prefix}-md {
+      &-col-#{$i} {
+        @include col;
+        width: calc(($i * 100%) / 12);
+      }
+    }
+  }
+}
+
+@include breakpoint(bigTablet) {
+  @for $i from 1 through 12 {
+    .#{$prefix}-lg {
+      &-col-#{$i} {
+        @include col;
+        width: calc(($i * 100%) / 12);
+      }
+    }
+  }
+}
+
+@include breakpoint(desktop) {
+  @for $i from 1 through 12 {
+    .#{$prefix}-xl {
+      &-col-#{$i} {
+        @include col;
+        width: calc(($i * 100%) / 12);
+      }
+    }
+  }
+}
+
+@include breakpoint(bigscreen) {
+  @for $i from 1 through 12 {
+    .#{$prefix}-2xl {
+      &-col-#{$i} {
+        @include col;
+        width: calc(($i * 100%) / 12);
+      }
+    }
+  }
+}
+
+@for $i from 1 through 12 {
+  .order-#{$i} {
+    order: $i;
+  }
+}

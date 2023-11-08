@@ -1,0 +1,180 @@
+@import "./_mixins";
+@import "./_variables";
+
+.#{$prefix} {
+  &-container {
+    max-width: 1245px;
+    margin: auto;
+  }
+
+  &-w-full {
+    width: 100% !important;
+  }
+
+  &-w-auto {
+    width: auto !important;
+  }
+
+  &-w-max-content {
+    width: max-content !important;
+  }
+
+  &-w-fit-content {
+    width: fit-content !important;
+  }
+
+  &-w-unset {
+    width: unset !important;
+  }
+}
+
+@for $i from 1 through 10 {
+  .#{$prefix} {
+    &-w-#{$i}0 {
+      width: calc($i * 10%) !important;
+    }
+  }
+  .#{$prefix} {
+    &-h-#{$i}0 {
+      height: calc($i * 10vh) !important;
+    }
+  }
+}
+
+.#{$prefix} {
+  &-w-full {
+    width: 100% !important;
+  }
+
+  &-w-auto {
+    width: auto !important;
+  }
+
+  &-w-max-content {
+    width: max-content !important;
+  }
+
+  &-w-fit-content {
+    width: fit-content !important;
+  }
+}
+
+@include breakpoint(smallmobile) {
+  .#{$prefix}-xs {
+    &-w-full {
+      width: 100% !important;
+    }
+
+    &-w-auto {
+      width: auto !important;
+    }
+
+    &-w-max-content {
+      width: max-content !important;
+    }
+
+    &-w-fit-content {
+      width: fit-content !important;
+    }
+  }
+}
+
+@include breakpoint(mobile) {
+  .#{$prefix}-sm {
+    &-w-full {
+      width: 100% !important;
+    }
+
+    &-w-auto {
+      width: auto !important;
+    }
+
+    &-w-max-content {
+      width: max-content !important;
+    }
+
+    &-w-fit-content {
+      width: fit-content !important;
+    }
+  }
+}
+
+@include breakpoint(tablet) {
+  .#{$prefix}-md {
+    &-w-full {
+      width: 100% !important;
+    }
+
+    &-w-auto {
+      width: auto !important;
+    }
+
+    &-w-max-content {
+      width: max-content !important;
+    }
+
+    &-w-fit-content {
+      width: fit-content !important;
+    }
+  }
+}
+
+@include breakpoint(bigTablet) {
+  .#{$prefix}-lg {
+    &-w-full {
+      width: 100% !important;
+    }
+
+    &-w-auto {
+      width: auto !important;
+    }
+
+    &-w-max-content {
+      width: max-content !important;
+    }
+
+    &-w-fit-content {
+      width: fit-content !important;
+    }
+  }
+}
+
+@include breakpoint(desktop) {
+  .#{$prefix}-xl {
+    &-w-full {
+      width: 100% !important;
+    }
+
+    &-w-auto {
+      width: auto !important;
+    }
+
+    &-w-max-content {
+      width: max-content !important;
+    }
+
+    &-w-fit-content {
+      width: fit-content !important;
+    }
+  }
+}
+
+@include breakpoint(bigscreen) {
+  .#{$prefix}-2xl {
+    &-w-full {
+      width: 100% !important;
+    }
+
+    &-w-auto {
+      width: auto !important;
+    }
+
+    &-w-max-content {
+      width: max-content !important;
+    }
+
+    &-w-fit-content {
+      width: fit-content !important;
+    }
+  }
+}

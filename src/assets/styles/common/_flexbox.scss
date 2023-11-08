@@ -1,0 +1,185 @@
+@import "./mixins";
+
+.#{$prefix} {
+  &-flex-row {
+    flex-direction: row !important;
+  }
+  &-flex-row-re {
+    flex-direction: row-reverse !important;
+  }
+
+  &-flex-col {
+    flex-direction: column !important;
+  }
+
+  &-flex-col-re {
+    flex-direction: column-reverse !important;
+  }
+
+  &-wrap {
+    flex-wrap: wrap !important;
+  }
+
+  &-nowrap {
+    flex-wrap: nowrap !important;
+  }
+
+  &-wrap-re {
+    flex-wrap: wrap-reverse !important;
+  }
+}
+
+@include breakpoint(mobile) {
+  .#{$prefix}-sm {
+    &-flex-row {
+      flex-direction: row !important;
+    }
+    &-flex-row-re {
+      flex-direction: row-reverse !important;
+    }
+
+    &-flex-col {
+      flex-direction: column !important;
+    }
+
+    &-flex-col-re {
+      flex-direction: column-reverse !important;
+    }
+
+    &-wrap {
+      flex-wrap: wrap !important;
+    }
+
+    &-nowrap {
+      flex-wrap: nowrap !important;
+    }
+
+    &-wrap-re {
+      flex-wrap: wrap-reverse !important;
+    }
+  }
+}
+
+@include breakpoint(tablet) {
+  .#{$prefix}-md {
+    &-flex-row {
+      flex-direction: row !important;
+    }
+    &-flex-row-re {
+      flex-direction: row-reverse !important;
+    }
+
+    &-flex-col {
+      flex-direction: column !important;
+    }
+
+    &-flex-col-re {
+      flex-direction: column-reverse !important;
+    }
+
+    &-wrap {
+      flex-wrap: wrap !important;
+    }
+
+    &-nowrap {
+      flex-wrap: nowrap !important;
+    }
+
+    &-wrap-re {
+      flex-wrap: wrap-reverse !important;
+    }
+  }
+}
+
+@include breakpoint(bigTablet) {
+  .#{$prefix}-lg {
+    &-flex-row {
+      flex-direction: row !important;
+    }
+    &-flex-row-re {
+      flex-direction: row-reverse !important;
+    }
+
+    &-flex-col {
+      flex-direction: column !important;
+    }
+
+    &-flex-col-re {
+      flex-direction: column-reverse !important;
+    }
+
+    &-wrap {
+      flex-wrap: wrap !important;
+    }
+
+    &-nowrap {
+      flex-wrap: nowrap !important;
+    }
+
+    &-wrap-re {
+      flex-wrap: wrap-reverse !important;
+    }
+  }
+}
+
+@include breakpoint(desktop) {
+  .#{$prefix}-xl {
+    &-flex-row {
+      flex-direction: row !important;
+    }
+    &-flex-row-re {
+      flex-direction: row-reverse !important;
+    }
+
+    &-flex-col {
+      flex-direction: column !important;
+    }
+
+    &-flex-col-re {
+      flex-direction: column-reverse;
+    }
+
+    &-wrap {
+      flex-wrap: wrap !important;
+    }
+
+    &-nowrap {
+      flex-wrap: nowrap;
+    }
+
+    &-wrap-re {
+      flex-wrap: wrap-reverse !important;
+    }
+  }
+}
+
+@include breakpoint(bigscreen) {
+  .#{$prefix}-2xl {
+    &-flex-row {
+      flex-direction: row !important;
+    }
+    &-flex-row-re {
+      flex-direction: row-reverse !important;
+    }
+
+    &-flex-col {
+      flex-direction: column !important;
+    }
+
+    &-flex-col-re {
+      flex-direction: column-reverse;
+    }
+
+    &-wrap {
+      flex-wrap: wrap !important;
+    }
+
+    &-nowrap {
+      flex-wrap: nowrap;
+    }
+
+    &-wrap-re {
+      flex-wrap: wrap-reverse !important;
+    }
+  }
+}

@@ -1,0 +1,97 @@
+@import "./_mixins";
+@import "./variables";
+
+@for $i from 5 through 60 {
+  .#{$prefix} {
+    &-fs-#{$i} {
+      font-size: 1px * $i;
+    }
+  }
+}
+
+@include breakpoint(mobile) {
+  @for $i from 5 through 60 {
+    .#{$prefix}-sm {
+      &-fs-#{$i} {
+        font-size: 1px * $i;
+      }
+    }
+  }
+}
+
+@include breakpoint(tablet) {
+  @for $i from 5 through 60 {
+    .#{$prefix}-md {
+      &-fs-#{$i} {
+        font-size: 1px * $i;
+      }
+    }
+  }
+}
+
+@include breakpoint(bigTablet) {
+  @for $i from 5 through 60 {
+    .#{$prefix}-lg {
+      &-fs-#{$i} {
+        font-size: 1px * $i;
+      }
+    }
+  }
+}
+
+@include breakpoint(desktop) {
+  @for $i from 5 through 60 {
+    .#{$prefix}-xl {
+      &-fs-#{$i} {
+        font-size: 1px * $i;
+      }
+    }
+  }
+}
+
+@include breakpoint(bigscreen) {
+  @for $i from 5 through 60 {
+    .#{$prefix}-2xl {
+      &-fs-#{$i} {
+        font-size: 1px * $i;
+      }
+    }
+  }
+}
+
+.#{$prefix} {
+  &-fw-400 {
+    font-weight: 400 !important;
+  }
+  &-fw-500 {
+    font-weight: 500 !important;
+  }
+
+  &-fw-600 {
+    font-weight: 600 !important;
+  }
+
+  &-fw-700 {
+    font-weight: 700 !important;
+  }
+
+  &-fw-normal {
+    font-weight: normal !important;
+  }
+
+  &-fw-bold {
+    font-weight: bold !important;
+  }
+
+  &-lh-1 {
+    line-height: 1;
+  }
+}
+
+@each $key, $value in $colors {
+  .#{$prefix} {
+    &-text-color-#{$key} {
+      color: #{$value};
+    }
+  }
+}

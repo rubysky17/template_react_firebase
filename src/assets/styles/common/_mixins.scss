@@ -1,0 +1,149 @@
+@import "./variables";
+
+// breakpoint
+@mixin breakpoint($point) {
+  @if $point == bigscreen {
+    @media (min-width: $bigscreen) {
+      @content;
+    }
+  } @else if $point == desktop {
+    @media (min-width: $desktop) {
+      @content;
+    }
+  } @else if $point == bigTablet {
+    @media (min-width: $bigTablet) {
+      @content;
+    }
+  } @else if $point == tablet {
+    @media (min-width: $tablet) {
+      @content;
+    }
+  } @else if $point == mobile {
+    @media (min-width: $mobile) {
+      @content;
+    }
+  } @else if $point == smallmobile {
+    @media (min-width: $smallmobile) {
+      @content;
+    }
+  }
+}
+
+@mixin transition($duration) {
+  -webkit-transition: all $duration ease;
+  -moz-transition: all $duration ease;
+  -o-transition: all $duration ease;
+  transition: all $duration ease;
+}
+
+@mixin transitions($property) {
+  -webkit-transition: $property;
+  -moz-transition: $property;
+  -ms-transition: $property;
+  -o-transition: $property;
+  transition: $property;
+}
+
+@mixin transform($property) {
+  -webkit-transform: $property;
+  -moz-transform: $property;
+  -ms-transform: $property;
+  -o-transform: $property;
+  transform: $property;
+}
+
+@mixin transform-origin($property) {
+  -webkit-transform-origin: $property;
+  -moz-transform-origin: $property;
+  -ms-transform-origin: $property;
+  -o-transform-origin: $property;
+  transform-origin: $property;
+}
+// animation
+@mixin animation($property) {
+  -webkit-animation: $property;
+  -moz-animation: $property;
+  -ms-animation: $property;
+  -o-animation: $property;
+  animation: $property;
+}
+
+@mixin flexwrap {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin centeritem {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+// Scrollbar
+@mixin scrollbars($size, $foreground-color) {
+  // For Google Chrome
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $white;
+  }
+
+  // For Internet Explorer
+  & {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $white;
+  }
+}
+
+// placeholder
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    @content;
+  }
+  &::-moz-placeholder {
+    /* Firefox 19+ */
+    @content;
+  }
+  &:-ms-input-placeholder {
+    /* IE 10+ */
+    @content;
+  }
+  &:-moz-placeholder {
+    /* Firefox 18- */
+    @content;
+  }
+}
+
+@mixin hover-supported {
+  @media not all and (pointer: coarse) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin text-ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}

@@ -1,0 +1,60 @@
+@import "./_variables";
+@import "./_mixins";
+
+@for $i from 0 through $opacity-range {
+  .md {
+    &-opacity-#{$i} {
+      opacity: calc(#{$i} / 10) !important;
+    }
+  }
+}
+
+@include breakpoint(mobile) {
+  @for $i from 0 through $opacity-range {
+    .md-sm {
+      &-opacity-#{$i} {
+        opacity: calc(#{$i} / 10) !important;
+      }
+    }
+  }
+}
+
+@include breakpoint(tablet) {
+  @for $i from 0 through $opacity-range {
+    .md-md {
+      &-opacity-#{$i} {
+        opacity: calc(#{$i} / 10) !important;
+      }
+    }
+  }
+}
+
+@include breakpoint(bigTablet) {
+  @for $i from 0 through $opacity-range {
+    .md-lg {
+      &-opacity-#{$i} {
+        opacity: calc(#{$i} / 10) !important;
+      }
+    }
+  }
+}
+
+@include breakpoint(desktop) {
+  @for $i from 0 through $opacity-range {
+    .md-xl {
+      &-opacity-#{$i} {
+        opacity: calc(#{$i} / 10) !important;
+      }
+    }
+  }
+}
+
+@include breakpoint(bigscreen) {
+  @for $i from 0 through $opacity-range {
+    .md-2xl {
+      &-opacity-#{$i} {
+        opacity: calc(#{$i} / 10) !important;
+      }
+    }
+  }
+}

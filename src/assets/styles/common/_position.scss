@@ -1,0 +1,120 @@
+@import "./variables";
+@import "./mixins";
+
+.#{$prefix} {
+  &-relative {
+    position: relative !important;
+  }
+
+  &-sticky {
+    position: sticky !important;
+  }
+
+  &-absolute {
+    position: absolute !important;
+  }
+
+  &-fixed {
+    position: fixed !important;
+  }
+}
+
+@include breakpoint(mobile) {
+  .#{$prefix}-sm {
+    &-relative {
+      position: relative !important;
+    }
+
+    &-sticky {
+      position: sticky !important;
+    }
+
+    &-absolute {
+      position: absolute !important;
+    }
+
+    &-fixed {
+      position: fixed !important;
+    }
+  }
+}
+
+@include breakpoint(tablet) {
+  .#{$prefix}-md {
+    &-relative {
+      position: relative !important;
+    }
+
+    &-sticky {
+      position: sticky !important;
+    }
+
+    &-absolute {
+      position: absolute !important;
+    }
+
+    &-fixed {
+      position: fixed !important;
+    }
+  }
+}
+
+@include breakpoint(bigTablet) {
+  .#{$prefix}-lg {
+    &-relative {
+      position: relative !important;
+    }
+
+    &-sticky {
+      position: sticky !important;
+    }
+
+    &-absolute {
+      position: absolute !important;
+    }
+
+    &-fixed {
+      position: fixed !important;
+    }
+  }
+}
+
+@include breakpoint(desktop) {
+  .#{$prefix}-xl {
+    &-relative {
+      position: relative !important;
+    }
+
+    &-sticky {
+      position: sticky !important;
+    }
+
+    &-absolute {
+      position: absolute !important;
+    }
+
+    &-fixed {
+      position: fixed !important;
+    }
+  }
+}
+
+@include breakpoint(bigscreen) {
+  .#{$prefix}-2xl {
+    &-relative {
+      position: relative !important;
+    }
+
+    &-sticky {
+      position: sticky !important;
+    }
+
+    &-absolute {
+      position: absolute !important;
+    }
+
+    &-fixed {
+      position: fixed !important;
+    }
+  }
+}

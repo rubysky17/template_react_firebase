@@ -1,0 +1,196 @@
+@import "./_mixins";
+@import "./_variables";
+
+.#{$prefix} {
+  &-d-flex {
+    display: flex !important;
+  }
+
+  &-d-none {
+    display: none !important;
+  }
+
+  &-d-block {
+    display: block !important;
+  }
+
+  &-d-table {
+    display: table !important;
+  }
+
+  &-d-inline-block {
+    display: inline-block !important;
+  }
+
+  &-d-inline {
+    display: inline !important;
+  }
+}
+
+@include breakpoint(smallmobile) {
+  .#{$prefix}-xs {
+    &-d-flex {
+      display: flex !important;
+    }
+
+    &-d-none {
+      display: none !important;
+    }
+
+    &-d-block {
+      display: block !important;
+    }
+
+    &-d-table {
+      display: table !important;
+    }
+
+    &-d-inline-block {
+      display: inline-block !important;
+    }
+
+    &-d-inline {
+      display: inline !important;
+    }
+  }
+}
+
+@include breakpoint(mobile) {
+  .#{$prefix}-sm {
+    &-d-flex {
+      display: flex !important;
+    }
+
+    &-d-none {
+      display: none !important;
+    }
+
+    &-d-block {
+      display: block !important;
+    }
+
+    &-d-table {
+      display: table !important;
+    }
+
+    &-d-inline-block {
+      display: inline-block !important;
+    }
+
+    &-d-inline {
+      display: inline !important;
+    }
+  }
+}
+
+@include breakpoint(tablet) {
+  .#{$prefix}-md {
+    &-d-flex {
+      display: flex !important;
+    }
+
+    &-d-none {
+      display: none !important;
+    }
+
+    &-d-block {
+      display: block !important;
+    }
+
+    &-d-table {
+      display: table !important;
+    }
+
+    &-d-inline-block {
+      display: inline-block !important;
+    }
+
+    &-d-inline {
+      display: inline !important;
+    }
+  }
+}
+
+@include breakpoint(bigTablet) {
+  .#{$prefix}-lg {
+    &-d-flex {
+      display: flex !important;
+    }
+
+    &-d-none {
+      display: none !important;
+    }
+
+    &-d-block {
+      display: block !important;
+    }
+
+    &-d-table {
+      display: table !important;
+    }
+
+    &-d-inline-block {
+      display: inline-block !important;
+    }
+
+    &-d-inline {
+      display: inline !important;
+    }
+  }
+}
+
+@include breakpoint(desktop) {
+  .#{$prefix}-xl {
+    &-d-flex {
+      display: flex !important;
+    }
+
+    &-d-none {
+      display: none !important;
+    }
+
+    &-d-block {
+      display: block !important;
+    }
+
+    &-d-table {
+      display: table !important;
+    }
+
+    &-d-inline-block {
+      display: inline-block !important;
+    }
+
+    &-d-inline {
+      display: inline !important;
+    }
+  }
+}
+
+@include breakpoint(bigscreen) {
+  .#{$prefix}-2xl {
+    &-d-flex {
+      display: flex !important;
+    }
+
+    &-d-none {
+      display: none !important;
+    }
+
+    &-d-block {
+      display: block !important;
+    }
+
+    &-d-table {
+      display: table !important;
+    }
+
+    &-d-inline-block {
+      display: inline-block !important;
+    }
+
+    &-d-inline {
+      display: inline !important;
+    }
+  }
+}
