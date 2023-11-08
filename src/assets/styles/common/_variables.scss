@@ -1,22 +1,23 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
 // PREFIX
 $prefix: md;
 
 // FONT_FAMILY
-$font-family-primary: "Inter", Arial !default;
+$font-family-primary: "Roboto", Arial !default;
 
 // COLORS
 $white: #fff;
 
 $black-1: #202223;
 
-
 $gray-1: #808080;
 
 $blue-1: #042659;
 
 $red-1: #ee3333;
+
+$bg-primary: #231f20;
 
 // BREAKPOINTS
 $bigscreen: 1400px; //2xl
