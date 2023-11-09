@@ -1,8 +1,13 @@
-
+import Map from "../../components/Map"
 
 function ProjectPage() {
     return (
-        <div>ProjectPage</div>
+        <div style={{
+            width: "100vw",
+            height: "100vh"
+        }}>
+            <Map />
+        </div>
     )
 }
 

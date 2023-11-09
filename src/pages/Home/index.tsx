@@ -29,7 +29,7 @@ function HomePage() {
                     <img src={Logo} style={{
                         width: 70,
                         height: 70
-                    }} />
+                    }} alt="menu_trans" />
 
                     <SwitchTranslate />
                 </div>

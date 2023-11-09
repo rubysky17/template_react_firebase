@@ -1,22 +1,23 @@
 import ImgProject from "../assets/images/menu_project.png";
 import ImgExplore from "../assets/images/menu_explore.jpg";
-import ImgContact from "../assets/images/menu_contact.jpg";
 
 export const MENU_CONSTANT = [
     {
       name: "Project",
       path: '/project',
-      image: ImgProject
+      image: ImgProject,
+      type: 'image'
     },
     {
       name: "Explore",
       path: '/explore',
-      image: ImgExplore
+      image: ImgExplore,
+      type: 'image'
     },
     {
-      name: "Contact",
+      name: "(+84) 2 862 716 499 <br /> woaarchitects.info@gmail.com",
       path: '/contact',
-      image: ImgContact
+      type: 'map'
     }
   ];
   
