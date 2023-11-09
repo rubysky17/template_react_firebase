@@ -34,12 +34,11 @@ function MenuList() {
                         top: "50%",
                         left: '50%',
                         transform: `translate(-50%, -50%)`,
-                        zIndex: 9999
-                    }}>{t(item.name)}</h2> : <span className="md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
+                    }}>{t(item.name)}</h2> : <h2 className="md-text-center md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
                         top: "50%",
                         left: '50%',
                         transform: `translate(-50%, -50%)`,
-                        zIndex: 9999
+                        zIndex: 3
                     }} dangerouslySetInnerHTML={{ __html: item.name }} />}
                 </div>
             })}
