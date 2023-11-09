@@ -1,4 +1,4 @@
-import { HomePage, ProjectPage } from "../pages"
+import { HomePage, ProjectPage, ContactPage } from "../pages"
 
 export const routes: any = [
   {
@@ -8,5 +8,9 @@ export const routes: any = [
   {
     path: "/project",
     element: <ProjectPage />
+  },
+  {
+    path: "/contact",
+    element: <ContactPage />
   }
 ];

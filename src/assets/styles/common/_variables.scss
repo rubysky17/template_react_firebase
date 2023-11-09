@@ -1,10 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
+@font-face {
+  font-family: "Avo";
+  /*Can be any text*/
+  src: url("../../fonts/Avo.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "AvoBold";
+  /*Can be any text*/
+  src: url("../../fonts/AvoBold.ttf") format("truetype");
+}
+
+
+@font-face {
+  font-family: "FuturaBold";
+  /*Can be any text*/
+  src: url("../../fonts/FuturaBold.ttf") format("truetype");
+}
+
+
 // PREFIX
 $prefix: md;
 
 // FONT_FAMILY
 $font-family-primary: "Roboto", Arial !default;
+$font-family-secondary: "Avo", Arial !default;
+$font-family-third: "FuturaBold", Arial !default;
 
 // COLORS
 $white: #fff;

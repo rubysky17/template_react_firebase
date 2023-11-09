@@ -30,16 +30,18 @@ function MenuList() {
                         <Map />
                     </div>}
 
-                    {item.type === 'image' ? <h2 className="md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
+                    {item.type === 'image' ? <h2 className="md-font-third md-fs-18 md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
                         top: "50%",
                         left: '50%',
                         transform: `translate(-50%, -50%)`,
-                    }}>{t(item.name)}</h2> : <h2 className="md-text-center md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
+                    }}>{t(item.name)}</h2> : <h2 className="md-font-third md-fs-18 md-text-center md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
                         top: "50%",
                         left: '50%',
                         transform: `translate(-50%, -50%)`,
                         zIndex: 3
-                    }} dangerouslySetInnerHTML={{ __html: item.name }} />}
+                    }} dangerouslySetInnerHTML={{ __html: item.name }} onClick={() => {
+                        navigate(item.path)
+                    }} />}
                 </div>
             })}
         </div>
