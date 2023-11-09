@@ -1,12 +1,9 @@
-import Map from "../../components/Map"
+import GridSystem from "../../components/Grid"
 
 function ProjectPage() {
     return (
-        <div style={{
-            width: "100vw",
-            height: "100vh"
-        }}>
-            <Map />
+        <div className="related-posts_group">
+            <GridSystem />
         </div>
     )
 }

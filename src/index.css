@@ -1,4 +1,6 @@
 @import '~leaflet/dist/leaflet.css';
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -16,4 +18,19 @@ code {
 .leaflet-container {
   width: 100%;
   height: 100vh;
+}
+
+
+/* Root of Grid */
+
+:root {
+  --gap: 1.5rem;
+  --double-gap: calc(var(--gap) * 2);
+  --half-gap: calc(var(--gap) * 0.5);
+}
+
+@media(min-width: 667px) {
+  :root {
+      --gap: 2rem
+  }
 }
