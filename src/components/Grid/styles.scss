@@ -27,7 +27,12 @@
 }
 
 .postlist_item_text {
-    padding-top: 0.8rem;
+    padding-top: 0.4rem;
     z-index: 1;
     text-align: center;
+}
+
+.postlist_item_subtitle {
+    margin-bottom: 0;
+    margin-right: 6px;
 }

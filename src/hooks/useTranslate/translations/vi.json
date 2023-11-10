@@ -1,5 +1,8 @@
 {
   "Project": "Dự Án",
   "Explore": "Khám phá",
-  "Contact": "Liên hệ"
+  "Contact": "Liên hệ",
+  "name": "Tên dự án",
+  "tag": "Tag",
+  "project_year": "Năm dự án"
 }

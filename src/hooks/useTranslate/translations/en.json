@@ -1,5 +1,8 @@
 {
   "Project": "Project",
   "Explore": "Explore",
-  "Contact": "Contact"
+  "Contact": "Contact",
+  "name": "Name",
+  "tag": "Tag",
+  "project_year": "Project Year"
 }

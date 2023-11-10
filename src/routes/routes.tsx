@@ -1,4 +1,4 @@
-import { HomePage, ProjectPage, ContactPage, ExplorePage } from "../pages";
+import { HomePage, ProjectPage, ContactPage, ExplorePage, ProjectDetailPage } from "../pages";
 
 import MasterLayout from "../HOC/MasterLayout";
 
@@ -12,6 +12,14 @@ export const routes: any = [
     element:
       <MasterLayout>
         <ProjectPage />
+      </MasterLayout>
+
+  },
+  {
+    path: "/project/:id",
+    element:
+      <MasterLayout>
+        <ProjectDetailPage />
       </MasterLayout>
 
   },
