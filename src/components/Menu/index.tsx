@@ -15,7 +15,7 @@ function MenuList() {
         <div style={{
             height: "70%"
         }} className="md-d-flex md-justify-between md-items-center md-p-40">
-            {MENU_CONSTANT.map((item, idx) => {
+            {MENU_CONSTANT.map((item: any, idx: any) => {
                 return <div className="md-p-10 md-relative" key={idx} style={{
                     width: (width / 3.5)
                 }}>
@@ -39,7 +39,7 @@ function MenuList() {
                         left: '50%',
                         transform: `translate(-50%, -50%)`,
                         zIndex: 3
-                    }} dangerouslySetInnerHTML={{ __html: item.name }} onClick={() => {
+                    }} dangerouslySetInnerHTML={{ __html: item.detail }} onClick={() => {
                         navigate(item.path)
                     }} />}
                 </div>

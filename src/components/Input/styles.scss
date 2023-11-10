@@ -1,0 +1,21 @@
+.md-header-search {
+    height: 17px;
+    border: none;
+    outline: none;
+    background: #dcd7cd
+}
+
+
+.input-icons {
+    position: relative;
+}
+
+.input-icons i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.input-icons input {
+    padding-left: 16px;
+}
