@@ -4,6 +4,7 @@ import reportWebVitals from './reportWebVitals';
 
 
 import "./assets/styles/common.scss";
+import "yet-another-react-lightbox/styles.css";
 import "./index.css"
 
 import App from './App';
