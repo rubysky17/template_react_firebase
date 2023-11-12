@@ -16,7 +16,7 @@ function Header() {
     const path = matches[0].pathname.split("/")[1];
 
     return (
-        <div className="md-d-flex md-items-center md-py-20 md-px-60 md-bg-secondary">
+        <div className="md-d-flex md-items-center md-py-20 md-bg-secondary">
             <img src={Logo} className="md-cursor-pointer md-header-logo" onClick={() => {
                 navigate("/")
             }} />

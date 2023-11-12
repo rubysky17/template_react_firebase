@@ -8,7 +8,7 @@ import Lightbox from 'yet-another-react-lightbox';
 function ProjectDetailPage() {
     const [detailProject, setDetailProject] = useState<any>({});
     const [isLoadingProject, setIsLoadingProject] = useState(false);
-    const [indexPicture, setIndexPicture] = useState(0);
+    const [indexPicture, setIndexPicture] = useState(-1);
 
     const { id } = useParams();
     const { t } = useTranslation();
@@ -61,8 +61,8 @@ function ProjectDetailPage() {
                     })}
                 </div>
 
-                <Lightbox open={indexPicture !== 0 ? true : false}
-                    close={() => setIndexPicture(0)}
+                <Lightbox open={indexPicture !== -1 ? true : false}
+                    close={() => setIndexPicture(-1)}
                     slides={detailProject?.project_collection?.map((t: any) => {
                         return { src: t }
                     })}

@@ -34,3 +34,9 @@ code {
       --gap: 2rem
   }
 }
+
+.wrapper-container {
+  max-width: 1250px;
+  min-height: 100vh;
+  margin: 0 auto;
+}
