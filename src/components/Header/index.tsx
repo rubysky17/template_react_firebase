@@ -19,7 +19,7 @@ function Header() {
         <div className="md-d-flex md-items-center md-py-20 md-bg-secondary">
             <img src={Logo} className="md-cursor-pointer md-header-logo" onClick={() => {
                 navigate("/")
-            }} />
+            }} alt="image_logo" />
 
             <div className="md-ml-30">
                 <ul className="md-header-menu">

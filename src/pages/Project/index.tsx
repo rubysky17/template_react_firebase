@@ -4,7 +4,7 @@ import { getList } from "../../constants/firebase";
 
 function ProjectPage() {
     const [listProject, setListProject] = useState([]);
-    const [IsLoadingList, setIsLoadingList] = useState(false);
+    const [isLoadingList, setIsLoadingList] = useState(false);
 
     useEffect(() => {
         setIsLoadingList(true)
@@ -22,7 +22,7 @@ function ProjectPage() {
 
     return (
         <div className="related-posts_group">
-            <GridSystem list={listProject} />
+            {isLoadingList ? <p>Đang tải</p> : <GridSystem list={listProject} type={"project"} />}
         </div>
     )
 }

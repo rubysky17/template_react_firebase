@@ -24,7 +24,7 @@ function ProjectDetailPage() {
             .finally(() => {
                 setIsLoadingProject(false);
             });
-    }, [])
+    }, [id])
 
     return (
         <div>
@@ -56,7 +56,7 @@ function ProjectDetailPage() {
                             <img src={imgSrc} style={{
                                 width: '100%',
                                 height: '100%',
-                            }} />
+                            }} alt="img_detai_project" className="md-cursor-pointer " />
                         </div>
                     })}
                 </div>
