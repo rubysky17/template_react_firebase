@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { MENU_CONSTANT } from "../../constants/constants"
 
@@ -8,33 +9,42 @@ import Map from "../Map"
 
 function MenuList() {
     const { width } = useWindowDimension();
+    const refMenu = useRef<any>(null);
     const { t } = useTranslation();
     const navigate = useNavigate();
 
+    // ! Width sẽ theo tỉ lệ của chiều cao màn hình nếu dưới 992px
+    const widthConfig = width < 992 ? refMenu?.current?.clientHeight / MENU_CONSTANT.length : ""
+
     return (
         <div style={{
-            height: "70%"
-        }} className="md-d-flex md-justify-between md-items-center md-p-40">
+            height: width >= 992 ? "70%" : "80%",
+            overflow: "hidden"
+        }} className={`${width >= 992 ? "md-row  md-p-20" : "md-d-flex md-justify-between md-items-center md-flex-col md-p-10"}`} ref={refMenu}>
             {MENU_CONSTANT.map((item: any, idx: any) => {
-                return <div className="md-p-10 md-relative" key={idx} style={{
-                    width: (width / 3.5)
+                return <div className="md-lg-col-4 md-relative md-p-10 md-flex md-justify-center md-items-center" key={idx} style={{
+                    height: widthConfig,
+                    width: widthConfig
                 }}>
                     {item.type === 'image' ? <img alt="img_menu" src={item.image} className="md-custom-menu md-cursor-pointer" onClick={() => {
                         navigate(item.path)
                     }} /> : <div style={{
-                        width: (width / 3.5),
-                        maxHeight: (width / 3.5),
                         borderRadius: '50%',
-                        overflow: 'hidden'
+                        aspectRatio: "1 / 1",
+                        overflow: 'hidden',
+                        position: 'relative',
+                        top: "50%",
+                        left: "50%",
+                        transform: "translate(-50%, -50%)",
                     }}>
                         <Map />
                     </div>}
 
-                    {item.type === 'image' ? <h2 className="md-font-third md-fs-18 md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
+                    {item.type === 'image' ? <h2 className="md-font-third md-fs-10 md-md-fs-14 md-lg-fs-16 md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
                         top: "50%",
                         left: '50%',
                         transform: `translate(-50%, -50%)`,
-                    }}>{t(item.name)}</h2> : <h2 className="md-font-third md-fs-18 md-text-center md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
+                    }}>{t(item.name)}</h2> : <h2 className="md-font-third md-fs-10 md-md-fs-14 md-lg-fs-16 md-text-center md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
                         top: "50%",
                         left: '50%',
                         transform: `translate(-50%, -50%)`,

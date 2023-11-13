@@ -46,7 +46,8 @@ function AdminPage() {
         <>
             {/* <Redirect to="/admin/danh-sach" component={AllProducts} /> */}
 
-            <main className=" container-admin">
+            <main className="container-admin">
+                <p>abc</p>
                 {/* <ListGroup /> */}
                 <Routes>
                     <Route
