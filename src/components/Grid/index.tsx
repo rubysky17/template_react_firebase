@@ -1,14 +1,12 @@
-import { useNavigate, useMatches } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./styles.scss"
 
 function GridSystem(props: any) {
     const navigate = useNavigate();
-    const matches = useMatches();
-
     const { list, type } = props;
 
     const handleClickDetail = (id: any) => {
-        navigate(`${matches[0].pathname}/${id}`)
+        navigate(`${id}`)
     }
 
     let collections = '', name = '', tag = "";

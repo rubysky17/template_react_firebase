@@ -1,0 +1,37 @@
+:root {
+  --width-menu: 200px;
+}
+
+.container-admin {
+  position: relative;
+  z-index: 105;
+  background: #fff;
+  top: 0;
+  right: 0;
+  left: 0;
+  max-width: 100%;
+  min-height: 100vh;
+  font-size: 1.6rem;
+}
+
+.btn-delete,
+.btn-edit {
+  cursor: pointer;
+}
+
+.btn-delete {
+  i {
+    color: red;
+  }
+}
+
+.btn-edit {
+  i {
+    color: red;
+  }
+}
+
+.btn-delete:hover,
+.btn-edit:hover {
+  opacity: 0.8;
+}

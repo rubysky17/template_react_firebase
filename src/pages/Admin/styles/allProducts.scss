@@ -1,0 +1,23 @@
+.product-section {
+  .product-btn-create {
+    color: #fff;
+    background-color: $primary-color;
+    padding: 4px 10px;
+    border: 1px solid $primary-color;
+    border-radius: 4px;
+
+    a {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    span {
+      font-size: 18px;
+      font-weight: 400;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

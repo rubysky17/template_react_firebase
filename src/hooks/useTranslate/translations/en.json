@@ -4,5 +4,14 @@
   "Contact": "Contact",
   "name": "Name",
   "tag": "Tag",
-  "project_year": "Project Year"
+  "project_year": "Project Year",
+  "address": "Address",
+  "phone": "Phone",
+  "mail": "Mail",
+  "follow us": "Follow Us",
+  "subject": "Subject",
+  "your phone": "Your Phone",
+  "content": "Content",
+  "attach file": "Attach file",
+  "send": "send"
 }

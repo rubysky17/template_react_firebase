@@ -4,5 +4,14 @@
   "Contact": "Liên hệ",
   "name": "Tên dự án",
   "tag": "Tag",
-  "project_year": "Năm dự án"
+  "project_year": "Năm dự án",
+  "address": "Địa chỉ",
+  "phone": "Số điện thoại",
+  "mail": "Mail",
+  "follow us": "Theo dõi chúng tôi",
+  "subject": "Đối tượng",
+  "your phone": "Số điện thoại của bạn",
+  "content": "Nội dung",
+  "attach file": "Tệp đính kèm",
+  "send": "Gửi"
 }

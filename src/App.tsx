@@ -1,13 +1,14 @@
 import { useEffect } from "react";
 import { useLocalStorage } from "./hooks/useStorage/useStorage";
 import { routes } from "./routes/routes";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
 
-const router = createBrowserRouter(routes);
+// const router = createBrowserRouter(routes);
 
 function App() {
   const [language, setLanguage] = useLocalStorage("language");
@@ -24,7 +25,15 @@ function App() {
 
   return (
     <div className="App">
-      <RouterProvider router={router} />
+      {/* <RouterProvider router={router} /> */}
+
+      <Router>
+        <Routes>
+          {routes.map((route: any) => {
+            return <Route path={route.path} element={route.element} />
+          })}
+        </Routes>
+      </Router>
     </div>
   );
 }

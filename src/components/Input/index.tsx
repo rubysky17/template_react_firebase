@@ -1,13 +1,15 @@
 import "./styles.scss";
 
-function Input() {
+function Input(props: any) {
+    const { isHasIcon, customClass } = props
+
     return (
         <div className="input-icons">
-            <i className="fa fa-search"></i>
+            {isHasIcon && <i className="fa fa-search"></i>}
 
             <input style={{
                 width: '100%'
-            }} className="md-header-search" />
+            }} className={`md-header-search ${customClass}`} />
         </div>
     )
 }
