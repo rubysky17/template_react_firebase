@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "./styles.scss"
+import { dimensionURL } from "../../helpers/helpers";
 
 function GridSystem(props: any) {
     const navigate = useNavigate();
@@ -21,20 +22,25 @@ function GridSystem(props: any) {
         collections = 'explore_collection';
         name = 'explore_name';
         tag = 'explore_tag'
-    }
+    };
+
 
     return (
         <>
-            <ul className="postlist_items">
+            <ul className="postlist_items" style={{
+                marginRight: "-15px"
+            }}>
                 {list.map((item: any, idx: any) => {
-                    return <li className="postlist_item md-d-flex md-justify-center md-items-center" key={idx}>
+                    console.log(dimensionURL(item[collections][0]))
+
+                    return <li className="md-pr-15 postlist_item md-d-flex md-justify-center md-items-center" key={idx}>
                         <div className="md-relative">
                             <div >
                                 <div className="postlist_item_images md-d-flex md-justify-center md-items-center" style={{
                                     objectFit: "contain",
                                 }}>
                                     <img src={item[collections][0]} style={{
-                                        width: `calc(100%*min(1, ${478 / 319}))`,
+                                        width: `calc(100%*min(1, ${dimensionURL(item[collections][0]).width / dimensionURL(item[collections][0]).height}))`,
                                         height: ''
                                     }} onClick={() => {
                                         handleClickDetail(item.id)
