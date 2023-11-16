@@ -13,4 +13,4 @@ export const dimensionURL: any = (url: string) => {
         width: spliceWAndH[0],
         height: spliceWAndH[1]
     }
-}
+};

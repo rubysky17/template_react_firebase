@@ -16,7 +16,7 @@ function Header() {
     const path = location?.pathname || "";
 
     return (
-        <div className="md-d-flex md-items-center md-py-20 md-bg-secondary">
+        <div className="md-px-10 md-md-px-90 md-d-flex md-items-center md-py-20 md-bg-secondary">
             <img src={Logo} className="md-cursor-pointer md-header-logo" onClick={() => {
                 navigate("/")
             }} alt="image_logo" />

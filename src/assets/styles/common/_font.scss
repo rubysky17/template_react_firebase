@@ -73,6 +73,18 @@
 }
 
 .#{$prefix} {
+  &-fw-100 {
+    font-weight: 100 !important;
+  }
+
+  &-fw-200 {
+    font-weight: 200 !important;
+  }
+
+  &-fw-300 {
+    font-weight: 300 !important;
+  }
+
   &-fw-400 {
     font-weight: 400 !important;
   }

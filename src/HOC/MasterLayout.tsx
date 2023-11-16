@@ -6,7 +6,7 @@ const MasterLayout = ({ children }: any) => {
             <div className="wrapper-container">
                 <Header />
 
-                <div className="md-px-90 md-bg-secondary">
+                <div className="md-px-20 md-md-px-30 md-bg-secondary">
                     {children}
                 </div>
             </div>

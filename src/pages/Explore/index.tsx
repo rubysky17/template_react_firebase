@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import GridSystem from "../../components/Grid"
 import { getList } from "../../constants/firebase";
+import { SkeletonList } from "../../components/SkeletonLoading";
 
 function ExplorePage() {
     const [listProject, setListProject] = useState([]);
@@ -22,7 +23,7 @@ function ExplorePage() {
 
     return (
         <div className="related-posts_group">
-            {isLoadingList ? <p>Đang tải</p> : <GridSystem list={listProject} type={"explore"} />}
+            {isLoadingList ? <SkeletonList numberItems={10} /> : <GridSystem list={listProject} type={"explore"} />}
         </div>
     )
 }

@@ -28,12 +28,11 @@ function GridSystem(props: any) {
     return (
         <>
             <ul className="postlist_items" style={{
-                marginRight: "-15px"
+                marginRight: "-15px",
+                marginLeft: "-15px",
             }}>
                 {list.map((item: any, idx: any) => {
-                    console.log(dimensionURL(item[collections][0]))
-
-                    return <li className="md-pr-15 postlist_item md-d-flex md-justify-center md-items-center" key={idx}>
+                    return <li className="md-px-15 postlist_item md-d-flex md-justify-center md-items-center md-wrap" key={idx}>
                         <div className="md-relative">
                             <div >
                                 <div className="postlist_item_images md-d-flex md-justify-center md-items-center" style={{
@@ -55,7 +54,7 @@ function GridSystem(props: any) {
 
                                         <div className="md-d-flex md-justify-center">
                                             {item[tag].map((tag: any, idx: any) => {
-                                                return <p className="postlist_item_subtitle" key={idx}>#{tag}</p>
+                                                return <p className="postlist_item_subtitle md-font-primary md-fw-300" key={idx}>#{tag}</p>
                                             })}
                                         </div>
                                     </div>
@@ -64,7 +63,6 @@ function GridSystem(props: any) {
                         </div>
                     </li>
                 })}
-
             </ul>
         </>
     )

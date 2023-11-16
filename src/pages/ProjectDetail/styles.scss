@@ -1,0 +1,15 @@
+.md-project-detail-picture {
+    width: calc(100% / 5);
+
+    @media screen and (max-width: 1200px) {
+        width: calc(100% / 4);
+    }
+
+    @media screen and (max-width: 992px) {
+        width: calc(100% / 3);
+    }
+
+    @media screen and (max-width: 768px) {
+        width: calc(100% / 2);
+    }
+}

@@ -40,11 +40,11 @@ function MenuList() {
                         <Map />
                     </div>}
 
-                    {item.type === 'image' ? <h2 className="md-font-third md-fs-10 md-md-fs-14 md-lg-fs-16 md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
+                    {item.type === 'image' ? <h2 className="md-font-secondary md-fs-10 md-md-fs-14 md-lg-fs-16 md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
                         top: "50%",
                         left: '50%',
                         transform: `translate(-50%, -50%)`,
-                    }}>{t(item.name)}</h2> : <h2 className="md-font-third md-fs-10 md-md-fs-14 md-lg-fs-16 md-text-center md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
+                    }}>{t(item.name)}</h2> : <h2 className="md-font-secondary md-fs-10 md-md-fs-14 md-lg-fs-16 md-text-center md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
                         top: "50%",
                         left: '50%',
                         transform: `translate(-50%, -50%)`,
