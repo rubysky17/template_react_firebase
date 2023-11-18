@@ -1,0 +1,32 @@
+.md-sidebar {
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background: #fff;
+    margin: 0;
+
+    li {
+        list-style: none;
+        padding: 12px;
+        font-size: 14px;
+        text-transform: capitalize;
+        cursor: pointer;
+        color: #495057;
+    }
+
+    & .md-active-sidebar {
+        background: #fec843;
+        color: #fff;
+        font-weight: 500;
+    }
+
+    &-logo {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+}

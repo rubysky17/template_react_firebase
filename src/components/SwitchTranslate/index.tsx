@@ -4,10 +4,6 @@ import { useLocalStorage } from '../../hooks/useStorage/useStorage';
 function SwitchTranslate() {
     const [language, setLanguage] = useLocalStorage("language");
 
-    console.log({
-        language
-    });
-
     const LANGS = [
         {
             display: "eng",

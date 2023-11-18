@@ -5,5 +5,7 @@ import ExplorePage from "./Explore";
 import ProjectDetailPage from "./ProjectDetail";
 import ExploreDetailPage from "./ExploreDetail";
 import AdminPage from "./Admin";
+import AdminDetailPage from "./Admin/Detail";
 
-export { HomePage , ProjectPage, ContactPage, ExplorePage , ProjectDetailPage , ExploreDetailPage , AdminPage} 
+
+export { HomePage , ProjectPage, ContactPage, ExplorePage , ProjectDetailPage , ExploreDetailPage , AdminPage , AdminDetailPage} 

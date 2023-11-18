@@ -1,0 +1,103 @@
+.md-login-background {
+    background: -moz-linear-gradient(top, rgba(222, 219, 214, 1) 0%, rgba(222, 219, 214, 1) 26%, rgba(220, 217, 212, 1) 29%, rgba(216, 212, 209, 1) 73%, rgba(214, 210, 207, 1) 74%, rgba(214, 210, 207, 1) 86%, rgba(212, 208, 205, 1) 88%, rgba(213, 209, 208, 1) 91%, rgba(212, 208, 207, 1) 100%);
+    background: -webkit-linear-gradient(top, rgba(222, 219, 214, 1) 0%, rgba(222, 219, 214, 1) 26%, rgba(220, 217, 212, 1) 29%, rgba(216, 212, 209, 1) 73%, rgba(214, 210, 207, 1) 74%, rgba(214, 210, 207, 1) 86%, rgba(212, 208, 205, 1) 88%, rgba(213, 209, 208, 1) 91%, rgba(212, 208, 207, 1) 100%);
+    width: 100vw;
+    height: 100vh;
+    padding: 50px 0;
+
+}
+
+form h2 {
+    height: 40px;
+    text-align: center;
+    font-weight: normal;
+    font-size: 17px;
+    color: #99826b;
+    line-height: 40px;
+    text-transform: capitalize;
+    border-radius: 10px 10px 0 0;
+    box-shadow: inset 0 1px 0 0 #eee;
+
+    background: -moz-linear-gradient(top, rgba(235, 227, 206, 1) 0%, rgba(235, 227, 206, 1) 100%);
+    background: -webkit-linear-gradient(top, rgba(235, 227, 206, 1) 0%, rgba(235, 227, 206, 1) 100%);
+}
+
+form {
+    display: block;
+    width: 300px;
+    margin: 0px auto;
+    height: 250px;
+    border-top: 1px solid #d9d0b8;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px #aaa;
+    font-family: ebrima;
+    background: -moz-linear-gradient(top, rgba(244, 243, 239, 1) 0%, rgba(244, 243, 239, 1) 100%);
+    background: -webkit-linear-gradient(top, rgba(244, 243, 239, 1) 0%, rgba(244, 243, 239, 1) 100%);
+}
+
+.md-login-input {
+    display: block;
+    height: 40px;
+    margin: 0 auto;
+    border: 0;
+    padding: 0 10px;
+    text-align: center;
+}
+
+button {
+    display: block;
+    height: 40px;
+    margin: 0 auto;
+    border: 0;
+    padding: 0 10px;
+    text-align: center;
+}
+
+.md-login-input.md-user,
+.md-login-input.md-pass {
+    font-size: 17px;
+    color: #333;
+    border: 1px solid #ddd;
+    width: 240px;
+    box-shadow: inset 0 0 2px 1px #eee;
+    transition: all 0.8s ease-out;
+}
+
+.md-login-input.md-user {
+    margin-top: 30px;
+    border-radius: 5px 5px 0 0;
+}
+
+.md-login-input:focus {
+    border: 1px solid #D2AE7E;
+}
+
+.md-login-input.md-pass {
+    border-radius: 0 0 5px 5px;
+    border-top: 0;
+}
+
+button.md-btn {
+    cursor: pointer;
+    width: 260px;
+    margin-top: 30px;
+    border-radius: 5px;
+    color: #fff2d9;
+    font-size: 17px;
+    box-shadow: 0 3px 10px #ccc;
+    background: -moz-linear-gradient(top, rgba(218, 131, 112, 1) 0%, rgba(214, 123, 104, 1) 34%, rgba(213, 122, 101, 1) 35%, rgba(210, 118, 97, 1) 51%, rgba(210, 115, 93, 1) 54%, rgba(207, 111, 89, 1) 75%, rgba(206, 107, 84, 1) 83%, rgba(205, 105, 82, 1) 100%);
+    background: -webkit-linear-gradient(top, rgba(218, 131, 112, 1) 0%, rgba(214, 123, 104, 1) 34%, rgba(213, 122, 101, 1) 35%, rgba(210, 118, 97, 1) 51%, rgba(210, 115, 93, 1) 54%, rgba(207, 111, 89, 1) 75%, rgba(206, 107, 84, 1) 83%, rgba(205, 105, 82, 1) 100%);
+    outline: none;
+}
+
+::-webkit-.md-login-input-placeholder {
+    color: #e0ded7;
+    font-size: 17px;
+    text-transform: capitalize;
+}
+
+:-moz-placeholder {
+    color: #e0ded7;
+    font-size: 17px;
+    text-transform: capitalize;
+}

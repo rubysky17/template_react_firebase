@@ -1,7 +1,8 @@
-import { HomePage, ProjectPage, ContactPage, ExplorePage, ProjectDetailPage, ExploreDetailPage, AdminPage } from "../pages";
+import { HomePage, ProjectPage, ContactPage, ExplorePage, ProjectDetailPage, ExploreDetailPage, AdminPage, AdminDetailPage } from "../pages";
 
 import MasterLayout from "../HOC/MasterLayout";
 import ExploreDetailLayout from "../HOC/ExploreDetailLayout";
+import ProtectLayout from "../HOC/ProtectLayout";
 
 export const routes: any = [
   {
@@ -48,5 +49,11 @@ export const routes: any = [
   {
     path: "/admin",
     element: <AdminPage />
+  },
+  {
+    path: "/admin/:screen",
+    element: <ProtectLayout>
+      <AdminDetailPage />
+    </ProtectLayout>
   }
 ];
