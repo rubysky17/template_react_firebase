@@ -1,0 +1,30 @@
+.rc-dialog-close {
+    right: 20px;
+    top: 18px;
+    font-weight: 500;
+    font-size: 26px;
+}
+
+.rc-dialog-header {
+    color: #424242;
+    font-size: 16px;
+    padding: 21px 24px;
+}
+
+.rc-dialog-body {
+    padding: 24px;
+}
+
+@media (min-width: 768px) {
+    .rc-dialog {
+        margin: 0 auto;
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+}
+
+@media (max-width: 767px) {
+    .rc-dialog-footer {
+        padding-bottom: 60px;
+    }
+}

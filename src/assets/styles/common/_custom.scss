@@ -23,3 +23,52 @@
 .md-cursor-pointer {
     cursor: pointer;
 }
+
+.md-whitebox-no-bs {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 16px 16px 24px 16px;
+}
+
+.md-whitebox {
+    background: #ffffff;
+    box-shadow: 0px 0px 5px rgba(10, 31, 68, 0.21);
+    border-radius: 8px;
+    padding: 16px 16px 24px 16px;
+}
+
+
+.md-table-list {
+    border-radius: 4px;
+    border: 1px solid #E5E7EB;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed;
+    min-width: 100%;
+    width: 100%;
+    overflow: scroll;
+    border-bottom: unset;
+
+
+    tr th {
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 16px;
+        color: #111827;
+        width: "fit-content";
+        background: #F9FAFB;
+        padding: 10px 16px;
+        border-bottom: 1px solid #E5E7EB;
+    }
+
+    tr td {
+        color: #111827;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        padding: 10px 16px;
+        border-bottom: 1px solid #E5E7EB;
+    }
+}

@@ -7,6 +7,7 @@ import "./assets/styles/common.scss";
 import "yet-another-react-lightbox/styles.css";
 import 'react-loading-skeleton/dist/skeleton.css';
 import 'react-toastify/dist/ReactToastify.css';
+import 'tippy.js/dist/tippy.css';
 import "./index.css"
 
 import App from './App';
