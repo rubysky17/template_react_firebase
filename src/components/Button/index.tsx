@@ -1,7 +1,7 @@
 import React from 'react'
 
 function Button(props: any) {
-    const { content, status, className, onClick } = props;
+    const { content, status, className, onClick, type } = props;
 
     let styles = {
         color: status === "success" ? "#fff" : '#424242',
@@ -9,7 +9,7 @@ function Button(props: any) {
     }
 
     return (
-        <div style={{
+        <button style={{
             height: 40,
             padding: "11px 12px",
             minWidth: "90px",
@@ -21,12 +21,14 @@ function Button(props: any) {
             textAlign: 'center',
             justifyContent: 'center',
             alignItems: 'center',
+            margin: 0,
+            outline: "none",
             ...styles
         }} className={`${className}`} onClick={() => {
             onClick && onClick()
-        }}>
+        }} type={type}>
             <p className="md-m-0">{content}</p>
-        </div>
+        </button>
     )
 }
 

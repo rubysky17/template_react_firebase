@@ -1,7 +1,13 @@
 import { TOGGLE_MODAL_EDIT } from "./constants";
 
 export const initialState = {
-  isOpenEditModal: true,
+  isOpenEditModal: false,
+  formProjectDefaultValue: {
+    project_name: "Võ Mạnh Đạt",
+    project_tag: [],
+    project_year: 0,
+    project_collection: []
+  }
 };
 
 const reducer = (state: any, action: any) => {

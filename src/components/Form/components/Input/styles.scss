@@ -1,0 +1,26 @@
+.md-a-input {
+    border: 1px solid #e0e0e0;
+    color: #212121;
+    font-size: 14px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 10px 12px;
+    border-radius: 4px;
+    line-height: 18px;
+    display: block;
+    width: 100%;
+    -webkit-transition: border .2s ease-out;
+    -o-transition: border .2s ease-out;
+    transition: border .2s ease-out;
+    outline: none;
+    background: #fff;
+
+    &:focus {
+        border-color: #fec843;
+        outline: none;
+        position: relative;
+        z-index: 1;
+        -webkit-box-shadow: 0 0 5px rgba(254, 200, 67, .4);
+        box-shadow: 0 0 5px rgba(254, 200, 67, .4);
+    }
+}

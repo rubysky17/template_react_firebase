@@ -112,7 +112,7 @@ function LoginPage() {
 
     return (
         <div className="md-login-background">
-            <form>
+            <form className="md-form">
                 <h2>Đăng nhập</h2>
 
                 <input className="md-login-input md-user" type="text" placeholder="Tài khoản" value={account.username} onChange={(e) => {

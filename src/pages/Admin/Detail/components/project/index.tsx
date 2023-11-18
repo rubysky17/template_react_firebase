@@ -7,13 +7,15 @@ import Modal from '../../../../../components/Modal';
 import Button from '../../../../../components/Button';
 
 import { useStore } from '../../context/store';
+import Form from '../../../../../components/Form';
 
 function ProjectWrapper() {
     const { state, dispatch, actions } = useStore();
-    const { isOpenEditModal } = state;
+    const { isOpenEditModal, formProjectDefaultValue } = state;
 
     const [isLoading, setIsLoading] = useState(true);
     const [dataTable, setDataTable] = useState([]);
+
     const headers = [
         {
             name: 'Tên dự án',
@@ -100,25 +102,20 @@ function ProjectWrapper() {
             });
     }, []);
 
+
+    const onSubmit = (values: any) => {
+        console.log("values", values)
+    }
+
     const renderHeaderModalEdit = () => {
         return "Chỉnh sửa"
     }
 
     const renderBodyModalEdit = () => {
-        return "Body chỉnh sửa"
+        return <Form formDefaultValue={formProjectDefaultValue} onSubmit={onSubmit} />
     }
 
-    const renderFooterModalEdit = () => {
-        return <div className="md-d-flex md-justify-end">
-            <Button content="Lưu" status="success" className="md-mr-8" onClick={() => {
-                dispatch(actions.setToggleModalEdit(false))
-            }} />
 
-            <Button content="Huỷ" status="default" onClick={() => {
-                dispatch(actions.setToggleModalEdit(false))
-            }} />
-        </div>
-    }
 
     return (
         <div className="md-p-20">
@@ -153,7 +150,7 @@ function ProjectWrapper() {
             <Modal
                 renderHeader={renderHeaderModalEdit}
                 renderBody={renderBodyModalEdit}
-                renderFooter={renderFooterModalEdit}
+                // renderFooter={renderFooterModalEdit}
                 onClose={() => {
                     dispatch(actions.setToggleModalEdit(false))
                 }}
