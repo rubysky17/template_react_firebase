@@ -4,9 +4,9 @@ export const initialState = {
   isOpenEditModal: false,
   formProjectDefaultValue: {
     project_name: "Võ Mạnh Đạt",
-    project_tag: [],
+    project_tag: ["HCM", "report", "Dat dep trai"],
     project_year: 0,
-    project_collection: []
+    project_collection: ["https://firebasestorage.googleapis.com/v0/b/md-woaa-project.appspot.com/o/1-1%5B777x518%5D.jpg?alt=media&token=179d2d3d-ede3-4443-a505-30346e8946c7", "https://firebasestorage.googleapis.com/v0/b/md-woaa-project.appspot.com/o/1-1%5B777x518%5D.jpg?alt=media&token=179d2d3d-ede3-4443-a505-30346e8946c7" ,"https://firebasestorage.googleapis.com/v0/b/md-woaa-project.appspot.com/o/1-1%5B777x518%5D.jpg?alt=media&token=179d2d3d-ede3-4443-a505-30346e8946c7", "https://firebasestorage.googleapis.com/v0/b/md-woaa-project.appspot.com/o/1-1%5B777x518%5D.jpg?alt=media&token=179d2d3d-ede3-4443-a505-30346e8946c7"]
   }
 };
 

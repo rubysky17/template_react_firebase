@@ -115,8 +115,6 @@ function ProjectWrapper() {
         return <Form formDefaultValue={formProjectDefaultValue} onSubmit={onSubmit} />
     }
 
-
-
     return (
         <div className="md-p-20">
             <div className="md-whitebox">
@@ -150,7 +148,6 @@ function ProjectWrapper() {
             <Modal
                 renderHeader={renderHeaderModalEdit}
                 renderBody={renderBodyModalEdit}
-                // renderFooter={renderFooterModalEdit}
                 onClose={() => {
                     dispatch(actions.setToggleModalEdit(false))
                 }}
