@@ -1,20 +1,24 @@
-import { ReactNode, useEffect, useState } from 'react'
-import { getList } from '../../../../../constants/firebase';
+import { ReactNode, useEffect, useRef, useState } from 'react';
+import { useStore } from '../../context/store';
+
+import { create, getDocById, getList, removeById, updateById } from '../../../../../constants/firebase';
 
 import { SkeletonTable } from '../../../../../components/SkeletonLoading';
 import Tippy from '@tippyjs/react';
 import Modal from '../../../../../components/Modal';
-import Button from '../../../../../components/Button';
-
-import { useStore } from '../../context/store';
 import Form from '../../../../../components/Form';
+import Spinner from '../../../../../components/Spinner';
+import { ToastContainer, toast } from 'react-toastify';
+import Button from '../../../../../components/Button';
 
 function ProjectWrapper() {
     const { state, dispatch, actions } = useStore();
-    const { isOpenEditModal, formProjectDefaultValue } = state;
+    const { isOpenEditModal, isOpenCreateModal, formProjectDefaultValue, isLoadingEdit } = state;
 
     const [isLoading, setIsLoading] = useState(true);
     const [dataTable, setDataTable] = useState([]);
+
+    const childRef: any = useRef();
 
     const headers = [
         {
@@ -70,17 +74,24 @@ function ProjectWrapper() {
         },
         {
             name: "Thao tác",
-            render: (): ReactNode => {
+            render: (value: any): ReactNode => {
                 return <div>
                     <Tippy content="Chỉnh sửa">
                         <span className="md-px-10 md-cursor-pointer" onClick={() => {
-                            dispatch(actions.setToggleModalEdit(true))
+                            dispatch(actions.fetchEditData());
+                            dispatch(actions.setToggleModalEdit(true));
+
+                            getDocById("projects", value.id).then((res) => {
+                                dispatch(actions.fetchEditDataSuccess(res));
+                            })
+                                .catch((err) => console.log(err))
+
                         }}>{svgEdit}</span>
                     </Tippy>
 
                     <Tippy content="Xoá" >
                         <span className="md-px-10 md-cursor-pointer" onClick={() => {
-                            dispatch(actions.setToggleModalEdit(true))
+                            onDelete(value.id)
                         }}>{svgDelete}</span>
                     </Tippy>
                 </div>
@@ -104,7 +115,99 @@ function ProjectWrapper() {
 
 
     const onSubmit = (values: any) => {
-        console.log("values", values)
+        if (values.id) {
+            updateById("projects", values.id, values)
+                .then((response) => {
+                    toast.success("Lưu dự án thành công", {
+                        position: "bottom-right",
+                        autoClose: 2000,
+                        hideProgressBar: true,
+                        theme: 'dark'
+                    });
+
+                    dispatch(actions.setToggleModalEdit(false));
+                    setIsLoading(true);
+
+                    getList("projects").then((res) => {
+                        setDataTable(res);
+                        setIsLoading(false);
+                    })
+                        .catch((err) => console.log(err))
+                        .finally(() => {
+                            setIsLoading(false);
+                        });
+                })
+                .catch((error) => {
+                    toast.error("Lưu dự án thất bại", {
+                        position: "bottom-right",
+                        autoClose: 2000,
+                        hideProgressBar: true,
+                        theme: 'dark'
+                    })
+                });
+        } else {
+            create("projects", values)
+                .then((response) => {
+                    toast.success("Tạo dự án thành công", {
+                        position: "bottom-right",
+                        autoClose: 2000,
+                        hideProgressBar: true,
+                        theme: 'dark'
+                    });
+
+                    dispatch(actions.setToggleModalCreate(false));
+                    setIsLoading(true);
+
+                    setTimeout(() => {
+                        getList("projects").then((res) => {
+                            setDataTable(res);
+                            setIsLoading(false);
+                        })
+                            .catch((err) => console.log(err))
+                            .finally(() => {
+                                setIsLoading(false);
+                            });
+                    }, 1000)
+                })
+                .catch((error) => {
+                    toast.error("Tạo dự án thất bại", {
+                        position: "bottom-right",
+                        autoClose: 2000,
+                        hideProgressBar: true,
+                        theme: 'dark'
+                    })
+                });
+        }
+
+        childRef.current.resetFormValues();
+    }
+
+    const onDelete = (id: any) => {
+        setIsLoading(true);
+
+        removeById("projects", id)
+            .then((res) => {
+                toast.success("Xoá thành công", {
+                    position: "bottom-right",
+                    autoClose: 2000,
+                    hideProgressBar: true,
+                    theme: 'dark'
+                });
+
+                setTimeout(() => {
+                    getList("projects").then((res) => {
+                        setDataTable(res);
+                        setIsLoading(false);
+                    })
+                        .catch((err) => console.log(err))
+                        .finally(() => {
+                            setIsLoading(false);
+                        });
+                }, 1000);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
 
     const renderHeaderModalEdit = () => {
@@ -112,13 +215,39 @@ function ProjectWrapper() {
     }
 
     const renderBodyModalEdit = () => {
-        return <Form formDefaultValue={formProjectDefaultValue} onSubmit={onSubmit} />
+        return <>
+            {isLoadingEdit ? <div className="md-d-flex md-justify-center md-items-center" style={{
+                minHeight: "300px"
+            }}>
+                <Spinner />
+            </div> : <>
+                {formProjectDefaultValue.id && <Form formDefaultValue={formProjectDefaultValue} onSubmit={onSubmit} ref={childRef} />}
+            </>}
+
+        </>
+    }
+
+    const renderHeaderModalCreate = () => {
+        return "Tạo mới"
+    }
+
+    const renderBodyModalCreate = () => {
+        return <>
+            <Form formDefaultValue={formProjectDefaultValue} onSubmit={onSubmit} ref={childRef} />
+        </>
     }
 
     return (
         <div className="md-p-20">
             <div className="md-whitebox">
-                <h2 className="md-text-color-bg-admin-primary md-uppercase">Quản lý dự án</h2>
+                <div className="md-d-flex md-justify-between md-items-center md-mb-20">
+                    <h2 className="md-mb-0 md-text-color-bg-admin-primary md-uppercase">Quản lý dự án</h2>
+
+                    <Button content="Thêm" onClick={() => {
+                        dispatch(actions.setToggleModalCreate(true));
+                    }} status="success" />
+                </div>
+
 
                 {isLoading ? <SkeletonTable rows={16} cols={headers.length} /> : <table className="md-table-list">
                     <thead >
@@ -149,12 +278,27 @@ function ProjectWrapper() {
                 renderHeader={renderHeaderModalEdit}
                 renderBody={renderBodyModalEdit}
                 onClose={() => {
-                    dispatch(actions.setToggleModalEdit(false))
+                    dispatch(actions.setToggleModalEdit(false));
+                    dispatch(actions.fetchEditDataError());
                 }}
                 visible={isOpenEditModal}
                 closable={false}
                 className="hrv-report-custom-modal_config"
             />
+
+            <Modal
+                renderHeader={renderHeaderModalCreate}
+                renderBody={renderBodyModalCreate}
+                onClose={() => {
+                    childRef.current.resetFormValues();
+                    dispatch(actions.setToggleModalCreate(false));
+                }}
+                visible={isOpenCreateModal}
+                closable={false}
+                className="hrv-report-custom-modal_config"
+            />
+
+            <ToastContainer />
         </div>
     )
 }

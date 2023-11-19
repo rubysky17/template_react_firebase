@@ -29,7 +29,7 @@ function Header() {
                             onClick={() => {
                                 navigate(menu.path)
                             }}
-                        >{t(menu.name)}
+                        >{menu.name}
                         </li>
                     })}
                 </ul>

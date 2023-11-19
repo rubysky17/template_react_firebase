@@ -24,7 +24,7 @@ function LoginPage() {
 
     useEffect(() => {
         if (token && expiredToken > Date.now()) {
-            navigate('/admin/khach-hang')
+            navigate('/admin/project')
         } else {
             setToken(false)
             setExpiredToken("")
@@ -85,7 +85,6 @@ function LoginPage() {
 
                         setToken(true);
                         setExpiredToken(Date.now() + DATE_EXPIRED)
-                        // navigate("/admin/khach-hang")
                     } else {
                         toast.error("Đăng nhập thất bại vui lòng kiểm tra lại", {
                             position: "bottom-right",

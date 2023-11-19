@@ -1,19 +1,33 @@
-import { TOGGLE_MODAL_EDIT } from "./constants";
+import { FETCH_EDIT_DATA,FETCH_EDIT_DATA_SUCCESS, FETCH_EDIT_DATA_ERROR , TOGGLE_MODAL_EDIT, TOGGLE_MODAL_CREATE, PROJECT_DEFAULT } from "./constants";
+
+
 
 export const initialState = {
   isOpenEditModal: false,
-  formProjectDefaultValue: {
-    project_name: "Võ Mạnh Đạt",
-    project_tag: ["HCM", "report", "Dat dep trai"],
-    project_year: 0,
-    project_collection: ["https://firebasestorage.googleapis.com/v0/b/md-woaa-project.appspot.com/o/1-1%5B777x518%5D.jpg?alt=media&token=179d2d3d-ede3-4443-a505-30346e8946c7", "https://firebasestorage.googleapis.com/v0/b/md-woaa-project.appspot.com/o/1-1%5B777x518%5D.jpg?alt=media&token=179d2d3d-ede3-4443-a505-30346e8946c7" ,"https://firebasestorage.googleapis.com/v0/b/md-woaa-project.appspot.com/o/1-1%5B777x518%5D.jpg?alt=media&token=179d2d3d-ede3-4443-a505-30346e8946c7", "https://firebasestorage.googleapis.com/v0/b/md-woaa-project.appspot.com/o/1-1%5B777x518%5D.jpg?alt=media&token=179d2d3d-ede3-4443-a505-30346e8946c7"]
-  }
+  isOpenCreateModal: false,
+  formProjectDefaultValue: PROJECT_DEFAULT,
+  isLoadingEdit: false,
 };
 
 const reducer = (state: any, action: any) => {
   switch (action.type) {
     case TOGGLE_MODAL_EDIT:
       return { ...state, isOpenEditModal: action.payload };
+    
+    case TOGGLE_MODAL_CREATE:
+      return { ...state, isOpenCreateModal: action.payload, formProjectDefaultValue: PROJECT_DEFAULT};
+    
+    case FETCH_EDIT_DATA:
+      return { ...state, isLoadingEdit: true };
+
+    case FETCH_EDIT_DATA_SUCCESS:
+      console.log('reducer', action.payload )
+      return { ...state, isLoadingEdit: false, formProjectDefaultValue: action.payload };
+    
+    case FETCH_EDIT_DATA_ERROR:
+      return {
+        ...state, isLoadingEdit: false, formProjectDefaultValue: PROJECT_DEFAULT};
+    
     default:
       throw new Error("Action invalid");
   }
