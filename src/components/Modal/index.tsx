@@ -1,4 +1,3 @@
-import { memo } from "react";
 import Dialog from "rc-dialog";
 
 import "rc-dialog/assets/index.css";
@@ -59,4 +58,4 @@ Modal.defaultProps = {
     className: "",
 };
 
-export default memo(Modal);
+export default (Modal);

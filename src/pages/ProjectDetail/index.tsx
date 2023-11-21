@@ -44,7 +44,7 @@ function ProjectDetailPage() {
                 <p className="md-fs-12 md-md-fs-14 md-mb-10 md-font-primary md-fw-300">{detailProject.project_name}</p>
 
                 <h2 className="md-uppercase md-fw-700 md-fs-14 md-md-fs-16 md-mb-4">{t('tag')}</h2>
-                <div className="md-d-flex md-mb-10">
+                <div className="md-d-flex md-wrap md-mb-10">
                     {detailProject?.project_tag?.map((tag: any, idx: any) => {
                         return <p className="md-fs-12 md-md-fs-14 md-mb-0 md-mr-4 md-font-primary md-fw-300" key={idx}>#{tag}</p>
                     })}

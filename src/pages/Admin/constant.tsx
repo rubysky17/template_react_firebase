@@ -1,4 +1,4 @@
-import ContactWrapper from "./Detail/components/contact";
+import DesginWrapper from "./Detail/components/design";
 import ExploreWrapper from "./Detail/components/explore";
 import ProjectWrapper from "./Detail/components/project";
 
@@ -12,8 +12,8 @@ export const configScreen = [
         screen: <ExploreWrapper />
     },
     {
-        path: "contact",
-        screen: <ContactWrapper />
+        path: "design",
+        screen: <DesginWrapper />
     }
 ]
 

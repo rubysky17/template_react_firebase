@@ -63,7 +63,7 @@ function ExploreWrapper() {
             render: (value: any, id: any): ReactNode => {
                 return <div className='md-d-flex'>
                     {value.explore_collection.length ? <>
-                        {value.explore_collection?.slice(0, 3).map((imgSrc: any, idx: any) => {
+                        {value?.explore_collection?.slice(0, 3).map((imgSrc: any, idx: any) => {
                             return <div style={{
                                 aspectRatio: '1 / 1',
                             }} className="md-pr-10 md-project-detail-picture" key={idx} >
@@ -122,6 +122,43 @@ function ExploreWrapper() {
 
 
     const onSubmit = (values: any) => {
+        // ! Validate
+        if (!values.explore_name.trim().length) {
+            return toast.error("Vui lòng điền tên bài viết", {
+                position: "bottom-right",
+                autoClose: 2000,
+                hideProgressBar: true,
+                theme: 'dark'
+            })
+        }
+
+        if (!values.explore_tag.length) {
+            return toast.error("Vui lòng điền tag", {
+                position: "bottom-right",
+                autoClose: 2000,
+                hideProgressBar: true,
+                theme: 'dark'
+            })
+        }
+
+        if (!values.explore_collection.length) {
+            return toast.error("Vui lòng upload hình ảnh", {
+                position: "bottom-right",
+                autoClose: 2000,
+                hideProgressBar: true,
+                theme: 'dark'
+            })
+        }
+
+        if (!values.explore_banner.length) {
+            return toast.error("Vui lòng chọn hình ảnh làm banner", {
+                position: "bottom-right",
+                autoClose: 2000,
+                hideProgressBar: true,
+                theme: 'dark'
+            })
+        }
+
         if (values.id) {
             updateById("explores", values.id, values)
                 .then((response) => {
@@ -281,7 +318,7 @@ function ExploreWrapper() {
                 </table>}
             </div>
 
-            <Modal
+            {isOpenEditModal && <Modal
                 renderHeader={renderHeaderModalEdit}
                 renderBody={renderBodyModalEdit}
                 onClose={() => {
@@ -291,9 +328,10 @@ function ExploreWrapper() {
                 visible={isOpenEditModal}
                 closable={false}
                 className="hrv-report-custom-modal_config"
-            />
+            />}
 
-            <Modal
+
+            {isOpenCreateModal && <Modal
                 renderHeader={renderHeaderModalCreate}
                 renderBody={renderBodyModalCreate}
                 onClose={() => {
@@ -303,7 +341,9 @@ function ExploreWrapper() {
                 visible={isOpenCreateModal}
                 closable={false}
                 className="hrv-report-custom-modal_config"
-            />
+            />}
+
+
 
             <ToastContainer />
         </div>

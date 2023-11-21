@@ -116,6 +116,34 @@ function ProjectWrapper() {
 
 
     const onSubmit = (values: any) => {
+        // ! Validate
+        if (!values.project_name.trim().length) {
+            return toast.error("Vui lòng điền tên", {
+                position: "bottom-right",
+                autoClose: 2000,
+                hideProgressBar: true,
+                theme: 'dark'
+            })
+        }
+
+        if (!values.project_tag.length) {
+            return toast.error("Vui lòng điền tag", {
+                position: "bottom-right",
+                autoClose: 2000,
+                hideProgressBar: true,
+                theme: 'dark'
+            })
+        }
+
+        if (!values.project_collection.length) {
+            return toast.error("Vui lòng upload hình ảnh", {
+                position: "bottom-right",
+                autoClose: 2000,
+                hideProgressBar: true,
+                theme: 'dark'
+            })
+        }
+
         if (values.id) {
             updateById("projects", values.id, values)
                 .then((response) => {
@@ -275,7 +303,7 @@ function ProjectWrapper() {
                 </table>}
             </div>
 
-            <Modal
+            {isOpenEditModal && <Modal
                 renderHeader={renderHeaderModalEdit}
                 renderBody={renderBodyModalEdit}
                 onClose={() => {
@@ -285,9 +313,10 @@ function ProjectWrapper() {
                 visible={isOpenEditModal}
                 closable={false}
                 className="hrv-report-custom-modal_config"
-            />
+            />}
 
-            <Modal
+
+            {isOpenCreateModal && <Modal
                 renderHeader={renderHeaderModalCreate}
                 renderBody={renderBodyModalCreate}
                 onClose={() => {
@@ -298,7 +327,7 @@ function ProjectWrapper() {
                 closable={false}
                 className="hrv-report-custom-modal_config"
             />
-
+            }
             <ToastContainer />
         </div>
     )

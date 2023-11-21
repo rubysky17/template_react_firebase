@@ -32,7 +32,8 @@ const Form = forwardRef((props: any, ref) => {
 
     const [inputTag, setInputTag] = useState("");
     const [urls, setUrls] = useState<any>([]);
-    const [isLoadingUpload, setIsLoadingUpload] = useState(false)
+    const [isLoadingUpload, setIsLoadingUpload] = useState(false);
+
     const {
         handleSubmit,
         control,
@@ -48,21 +49,27 @@ const Form = forwardRef((props: any, ref) => {
     const Hwatch: any = watch;
     const HsetValue: any = setValue;
 
+    const watchExploreBanner: any = Hwatch("explore_banner")
+
     useImperativeHandle(ref, () => ({
         resetFormValues() {
             Hreset(PROJECT_DEFAULT);
             Hreset(EXPLORE_DEFAULT);
+            setIsLoadingUpload(false)
         }
     }));
 
     useEffect(() => {
+        // & Upload file cho Project
         if (urls.length && !isLoadingUpload && type === 'project') {
             const previousValue = Hwatch('project_collection')
             const final = [...previousValue, ...urls];
 
             HsetValue("project_collection", final)
+            console.log("tạo", final)
         }
 
+        // & Upload file cho Explore
         if (urls.length && !isLoadingUpload && type === 'explore') {
             const previousValue = Hwatch('explore_collection')
             const final = [...previousValue, ...urls];
@@ -147,8 +154,6 @@ const Form = forwardRef((props: any, ref) => {
             } catch (error: any) {
                 console.log(error.code);
             }
-        } else {
-            // Handle the case where no valid files were selected
         }
     };
 
@@ -158,7 +163,6 @@ const Form = forwardRef((props: any, ref) => {
             e.preventDefault();
         }
     };
-
 
     return (
         <form onSubmit={handleSubmit(handleOnSubmitForm)}
@@ -326,8 +330,6 @@ const Form = forwardRef((props: any, ref) => {
                 maxHeight: 500,
                 overflowY: "auto"
             }}>
-                <div className="md-col-12 md-mb-12">Banner upload</div>
-
                 <div className="md-col-12">
                     <h3 className="md-fs-12 md-fw-500 md-m-0 md-mb-4">
                         Tên bài viết
@@ -441,10 +443,20 @@ const Form = forwardRef((props: any, ref) => {
                                 return (
                                     <>
                                         {field.value.map((img: string, index: string) => {
-                                            return <SampleImage src={img} key={index} className="md-col-3" onRemove={(value: any) => {
-                                                let final = field.value.filter((y: any) => y !== value)
-                                                field.onChange(final);
-                                            }} />
+                                            return <SampleImage
+                                                showSelect
+                                                src={img}
+                                                key={index}
+                                                className="md-col-3"
+                                                onRemove={(value: any) => {
+                                                    let final = field.value.filter((y: any) => y !== value)
+                                                    field.onChange(final);
+                                                }}
+                                                isSelected={watchExploreBanner === img}
+                                                onSelect={(value: any) => {
+                                                    HsetValue("explore_banner", value)
+                                                }}
+                                            />
                                         })}
                                     </>
                                 );
