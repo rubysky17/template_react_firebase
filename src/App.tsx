@@ -3,13 +3,6 @@ import { useLocalStorage } from "./hooks/useStorage/useStorage";
 import { routes } from "./routes/routes";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-
-// const router = createBrowserRouter(routes);
-
 function App() {
   const [language, setLanguage] = useLocalStorage("language");
 
@@ -25,8 +18,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* <RouterProvider router={router} /> */}
-
       <Router>
         <Routes>
           {routes.map((route: any) => {

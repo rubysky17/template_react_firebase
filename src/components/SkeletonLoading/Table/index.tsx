@@ -2,9 +2,6 @@ import Skeleton from 'react-loading-skeleton'
 
 function SkeletonTable(props: any) {
     const { rows, cols } = props;
-    {/* <div className="md-mb-10">
-                    <Skeleton baseColor="#adb5bd" />
-                </div> */}
 
     return (
         <div className='md-row'>

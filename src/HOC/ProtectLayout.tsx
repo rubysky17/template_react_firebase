@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import Header from "../components/Header";
 import { useLocalStorage } from "../hooks/useStorage/useStorage";
 import { useNavigate } from "react-router-dom";
 
@@ -14,6 +13,8 @@ const ProtectLayout = ({ children }: any) => {
             setExpiredToken("")
             navigate("/admin");
         }
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

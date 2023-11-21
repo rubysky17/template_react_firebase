@@ -19,7 +19,7 @@ function SidebarAdmin() {
             <div className="md-d-flex md-justify-center">
                 <img src={logo} className="md-sidebar-logo md-cursor-pointer" onClick={() => {
                     navigate(`/`)
-                }} />
+                }} alt="logo_company" />
             </div>
 
             <ul className="md-p-0 md-m-0">

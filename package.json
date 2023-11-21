@@ -13,8 +13,10 @@
     "@types/react-dom": "^18.2.15",
     "firebase": "^8.10.1",
     "leaflet": "^1.8.0",
+    "moment": "^2.29.4",
     "rc-dialog": "^9.3.4",
     "react": "^18.2.0",
+    "react-datepicker": "^4.21.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.48.2",
     "react-leaflet": "^4.0.1",
@@ -52,6 +54,7 @@
     ]
   },
   "devDependencies": {
-    "@types/leaflet": "^1.9.8"
+    "@types/leaflet": "^1.9.8",
+    "@types/react-datepicker": "^4.19.3"
   }
 }

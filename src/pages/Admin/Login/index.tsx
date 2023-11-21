@@ -29,7 +29,9 @@ function LoginPage() {
             setToken(false)
             setExpiredToken("")
         }
-    }, [token]);
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [token, expiredToken]);
 
     const onHandleChange = (name: any, value: any) => {
         setAccount({

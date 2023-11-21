@@ -24,7 +24,6 @@ function GridSystem(props: any) {
         tag = 'explore_tag'
     };
 
-
     return (
         <>
             <ul className="postlist_items" style={{
@@ -52,7 +51,7 @@ function GridSystem(props: any) {
                                             handleClickDetail(item.id)
                                         }}>{item[name]}</h3>
 
-                                        <div className="md-d-flex md-justify-center">
+                                        <div className="md-d-flex md-justify-center md-wrap">
                                             {item[tag].map((tag: any, idx: any) => {
                                                 return <p className="postlist_item_subtitle md-font-primary md-fw-300" key={idx}>#{tag}</p>
                                             })}

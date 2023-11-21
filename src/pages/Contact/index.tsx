@@ -26,20 +26,6 @@ function ContactPage() {
                 <p className="md-fs-12 md-md-fs-14 md-mb-16">woaarchitects.info@gmail.com</p>
 
                 <h2 className="md-fw-700 md-fs-14 md-md-fs-16 md-mb-4">{t('follow us')}</h2>
-
-
-                <h2 className="md-fw-700 md-fs-14 md-md-fs-16 md-mb-0">{t('subject')}</h2>
-                <Input customClass={"md-mb-10 md-custom-input"} />
-
-                <h2 className="md-fw-700 md-fs-14 md-md-fs-16 md-mb-0">{t('your phone')}</h2>
-                <Input customClass={"md-mb-10 md-custom-input"} />
-
-                <h2 className="md-fw-700 md-fs-14 md-md-fs-16 md-mb-0">{t('content')}</h2>
-                <TextArea />
-
-                <h2 className="md-fw-700 md-fs-14 md-md-fs-16 md-mb-0">{t('attach file')}</h2>
-
-                <h2 className="md-uppercase md-fw-700 md-fs-14 md-md-fs-16 md-mb-4">{t('send')}</h2>
             </div>
 
             <div style={{

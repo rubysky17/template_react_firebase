@@ -2,9 +2,9 @@
     background: -moz-linear-gradient(top, rgba(222, 219, 214, 1) 0%, rgba(222, 219, 214, 1) 26%, rgba(220, 217, 212, 1) 29%, rgba(216, 212, 209, 1) 73%, rgba(214, 210, 207, 1) 74%, rgba(214, 210, 207, 1) 86%, rgba(212, 208, 205, 1) 88%, rgba(213, 209, 208, 1) 91%, rgba(212, 208, 207, 1) 100%);
     background: -webkit-linear-gradient(top, rgba(222, 219, 214, 1) 0%, rgba(222, 219, 214, 1) 26%, rgba(220, 217, 212, 1) 29%, rgba(216, 212, 209, 1) 73%, rgba(214, 210, 207, 1) 74%, rgba(214, 210, 207, 1) 86%, rgba(212, 208, 205, 1) 88%, rgba(213, 209, 208, 1) 91%, rgba(212, 208, 207, 1) 100%);
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     padding: 50px 0;
-
 }
 
 .md-form h2 {

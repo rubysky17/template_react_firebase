@@ -5,5 +5,9 @@
 @media (prefers-color-scheme: dark) {
     .map-tiles {
         filter: var(--map-tiles-filter, none);
+
+        &>.leaflet-pane.leaflet-map-pane>.leaflet-marker-icon {
+            filter: none !important;
+        }
     }
 }

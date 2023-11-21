@@ -1,7 +1,7 @@
 import { ReactNode, useEffect, useRef, useState } from 'react';
 import { useStore } from '../../context/store';
 
-import { create, getDocById, getList, removeById, updateById } from '../../../../../constants/firebase';
+import { create, getDocById, getListWithOrderBy, removeById, updateById } from '../../../../../constants/firebase';
 
 import { SkeletonTable } from '../../../../../components/SkeletonLoading';
 import Tippy from '@tippyjs/react';
@@ -10,6 +10,7 @@ import Form from '../../../../../components/Form';
 import Spinner from '../../../../../components/Spinner';
 import { ToastContainer, toast } from 'react-toastify';
 import Button from '../../../../../components/Button';
+import moment from 'moment';
 
 function ProjectWrapper() {
     const { state, dispatch, actions } = useStore();
@@ -45,11 +46,11 @@ function ProjectWrapper() {
             width: "20%"
         },
         {
-            name: 'Năm',
+            name: 'Ngày dự án',
             render: (value: any, id: any): ReactNode => {
-                return <>{value.project_year || "--"}</>
+                return <>{moment(value.project_year).format("DD/MM/yyyy") || "--"}</>
             },
-            width: "8%"
+            width: "12%"
         },
         {
             name: 'Hình ảnh',
@@ -82,7 +83,7 @@ function ProjectWrapper() {
                             dispatch(actions.setToggleModalEdit(true));
 
                             getDocById("projects", value.id).then((res) => {
-                                dispatch(actions.fetchEditDataSuccess(res));
+                                dispatch(actions.fetchEditDataProjectSuccess(res));
                             })
                                 .catch((err) => console.log(err))
 
@@ -103,7 +104,7 @@ function ProjectWrapper() {
     useEffect(() => {
         setIsLoading(true);
 
-        getList("projects").then((res) => {
+        getListWithOrderBy("projects", 'project_year', "desc").then((res) => {
             setDataTable(res);
             setIsLoading(false);
         })
@@ -128,7 +129,7 @@ function ProjectWrapper() {
                     dispatch(actions.setToggleModalEdit(false));
                     setIsLoading(true);
 
-                    getList("projects").then((res) => {
+                    getListWithOrderBy("projects", 'project_year', "desc").then((res) => {
                         setDataTable(res);
                         setIsLoading(false);
                     })
@@ -159,7 +160,7 @@ function ProjectWrapper() {
                     setIsLoading(true);
 
                     setTimeout(() => {
-                        getList("projects").then((res) => {
+                        getListWithOrderBy("projects", 'project_year', "desc").then((res) => {
                             setDataTable(res);
                             setIsLoading(false);
                         })
@@ -195,7 +196,7 @@ function ProjectWrapper() {
                 });
 
                 setTimeout(() => {
-                    getList("projects").then((res) => {
+                    getListWithOrderBy("projects", 'project_year', "desc").then((res) => {
                         setDataTable(res);
                         setIsLoading(false);
                     })
@@ -221,7 +222,7 @@ function ProjectWrapper() {
             }}>
                 <Spinner />
             </div> : <>
-                {formProjectDefaultValue.id && <Form formDefaultValue={formProjectDefaultValue} onSubmit={onSubmit} ref={childRef} />}
+                {formProjectDefaultValue.id && <Form formDefaultValue={formProjectDefaultValue} onSubmit={onSubmit} ref={childRef} type="project" />}
             </>}
 
         </>
@@ -233,7 +234,7 @@ function ProjectWrapper() {
 
     const renderBodyModalCreate = () => {
         return <>
-            <Form formDefaultValue={formProjectDefaultValue} onSubmit={onSubmit} ref={childRef} />
+            <Form formDefaultValue={formProjectDefaultValue} onSubmit={onSubmit} ref={childRef} type="project" />
         </>
     }
 
@@ -279,7 +280,7 @@ function ProjectWrapper() {
                 renderBody={renderBodyModalEdit}
                 onClose={() => {
                     dispatch(actions.setToggleModalEdit(false));
-                    dispatch(actions.fetchEditDataError());
+                    dispatch(actions.fetchEditDataProjectError());
                 }}
                 visible={isOpenEditModal}
                 closable={false}

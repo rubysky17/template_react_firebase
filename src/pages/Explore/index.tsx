@@ -4,15 +4,15 @@ import { getList } from "../../constants/firebase";
 import { SkeletonList } from "../../components/SkeletonLoading";
 
 function ExplorePage() {
-    const [listProject, setListProject] = useState([]);
+    const [listExplore, setListExplore] = useState([]);
     const [isLoadingList, setIsLoadingList] = useState(false);
 
     useEffect(() => {
         setIsLoadingList(true)
 
-        getList("explore")
+        getList("explores")
             .then((res) => {
-                setListProject(res)
+                setListExplore(res)
                 setIsLoadingList(false);
             })
             .catch((err) => console.log(err))
@@ -23,7 +23,7 @@ function ExplorePage() {
 
     return (
         <div className="related-posts_group">
-            {isLoadingList ? <SkeletonList numberItems={10} /> : <GridSystem list={listProject} type={"explore"} />}
+            {isLoadingList ? <SkeletonList numberItems={10} /> : <GridSystem list={listExplore} type={"explore"} />}
         </div>
     )
 }

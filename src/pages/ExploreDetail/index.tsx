@@ -17,7 +17,7 @@ function ExploreDetailPage() {
     useEffect(() => {
         setIsLoadingExplore(true);
 
-        getDocById("explore", id).then((res) => {
+        getDocById("explores", id).then((res) => {
             setDetailExplore(res);
             setIsLoadingExplore(false);
         })
@@ -57,10 +57,9 @@ function ExploreDetailPage() {
                         <div className="md-col-12 md-md-col-6 md-pr-30">
                             <p className='md-fs-14 md-md-fs-16 md-mb-0 md-font-primary md-fw-100' style={{
                                 lineHeight: "18px"
-                            }}>
-                                Andisi ilit, sit untiatis am ipicia susapid maximperum untis ni con cus essi necabo. Temodi debis et vel eos nectiusae. Rerspitios quibus sin exceat ex et deruptas aspic tem re de maior sinim sunti dia pa que mo vendisimi, cum et
-                                plabo. Ita solores doluptur aut explisi tataquo vel etur soluptat aut voluptatis et omnienim dolorepro quibuscitem
-                                quatiurepel im dolent aut mossumquam volorro vitatem pernatisci ditae. Ebitatem ratquod ma debis rectati nuscias repudan ihictorem rehentet unt a aut id et laborempera vit doluptat.Enda senis cum que nisto cum il maximpero offictas quodign ienitatur aut occaeperio offictat esed quam est etus, quamus, solorrum haritat quatus, comnist, necerrum hil etur sum qui in exceren imincto offic te volupturior solupis endio. Opta vero ex</p>
+                            }} dangerouslySetInnerHTML={{
+                                __html: detailExplore?.explore_description
+                            }}></p>
                         </div>
 
                         <div className="md-row md-col-12 md-md-col-6" style={{
@@ -69,7 +68,6 @@ function ExploreDetailPage() {
                             {detailExplore.explore_collection?.map((imgSrc: any, idx: any) => {
                                 return <div style={{
                                     width: `calc(100% / 2)`,
-                                    height: `calc(100% / 2)`,
                                     aspectRatio: '1 / 1',
                                 }} key={idx} onClick={() => {
                                     setIndexPicture(idx)

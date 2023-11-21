@@ -1,14 +1,22 @@
 import { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
+import { Controller, useForm } from "react-hook-form";
+import moment from 'moment';
+
+import { toast } from 'react-toastify';
 import Button from '../Button';
 import BadgesWClose from '../Chip';
 import AInput from './components/Input'
-import { Controller, useForm } from "react-hook-form";
 import SampleImage from '../Sample/Image';
-import { storage } from '../../constants/firebase';
 import Spinner from '../Spinner';
-import { toast } from 'react-toastify';
-import { PROJECT_DEFAULT } from '../../pages/Admin/Detail/context/store/constants';
+import DatePicker from "react-datepicker";
+import ATextArea from './components/TextArea';
 
+import { storage } from '../../constants/firebase';
+import { EXPLORE_DEFAULT, PROJECT_DEFAULT } from '../../pages/Admin/Detail/context/store/constants';
+
+import "react-datepicker/dist/react-datepicker.css";
+
+const MDatePicker: any = DatePicker;
 
 interface IFormInput {
     propject_name: string;
@@ -20,7 +28,7 @@ interface IFormInput {
 const MController: any = Controller;
 
 const Form = forwardRef((props: any, ref) => {
-    const { formDefaultValue, onSubmit } = props;
+    const { formDefaultValue, onSubmit, type } = props;
 
     const [inputTag, setInputTag] = useState("");
     const [urls, setUrls] = useState<any>([]);
@@ -31,28 +39,38 @@ const Form = forwardRef((props: any, ref) => {
         setValue,
         watch,
         reset,
-        formState: { errors, isDirty },
     } = useForm<IFormInput>({
         mode: "onChange",
         defaultValues: formDefaultValue,
     });
 
     const Hreset: any = reset;
+    const Hwatch: any = watch;
+    const HsetValue: any = setValue;
 
     useImperativeHandle(ref, () => ({
         resetFormValues() {
             Hreset(PROJECT_DEFAULT);
+            Hreset(EXPLORE_DEFAULT);
         }
     }));
 
     useEffect(() => {
-        if (urls.length && !isLoadingUpload) {
-            const previousValue = watch('project_collection')
+        if (urls.length && !isLoadingUpload && type === 'project') {
+            const previousValue = Hwatch('project_collection')
             const final = [...previousValue, ...urls];
 
-            setValue("project_collection", final)
+            HsetValue("project_collection", final)
         }
 
+        if (urls.length && !isLoadingUpload && type === 'explore') {
+            const previousValue = Hwatch('explore_collection')
+            const final = [...previousValue, ...urls];
+
+            HsetValue("explore_collection", final)
+        }
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [urls, isLoadingUpload])
 
     const handleOnSubmitForm = (values: any) => {
@@ -93,9 +111,9 @@ const Form = forwardRef((props: any, ref) => {
             setIsLoadingUpload(true);
 
             const promises = uploadList.map(async (image) => {
-                const { w, h, newName }: any = await getImageDimensions(image);
+                const { newName }: any = await getImageDimensions(image);
 
-                const uploadTask = storage.ref().child(`images/${newName}`).put(image);
+                const uploadTask = storage.ref().child(`images/${type}/${newName}`).put(image);
 
                 return new Promise((resolve: any, reject: any) => {
                     uploadTask.on(
@@ -141,11 +159,12 @@ const Form = forwardRef((props: any, ref) => {
         }
     };
 
+
     return (
         <form onSubmit={handleSubmit(handleOnSubmitForm)}
             onKeyDown={preventEnterKeySubmission}
         >
-            <div className="md-row">
+            {type === 'project' && <div className="md-row">
                 <div className="md-col-6 md-pr-8">
                     <h3 className="md-fs-12 md-fw-500 md-m-0 md-mb-4">
                         Tên dự án
@@ -177,14 +196,22 @@ const Form = forwardRef((props: any, ref) => {
                         name="project_year"
                         control={control}
                         render={({ field }: any) => {
+
                             return (
-                                <AInput
-                                    placeholder={"Nhập năm dự án"}
-                                    value={field.value || ""}
-                                    onChange={(e: any) => {
-                                        field.onChange(e)
-                                    }}
-                                />
+                                <div style={{
+                                    width: "100%",
+                                    height: 40
+                                }}>
+                                    <MDatePicker
+                                        showIcon
+                                        onChange={(date: any) => {
+                                            const currentDate = moment(date).unix() * 1000
+                                            field.onChange(currentDate);
+                                        }}
+                                        dateFormat="dd/MM/yyyy"
+                                        selected={field.value}
+                                    />
+                                </div>
                             );
                         }}
                     />
@@ -293,9 +320,162 @@ const Form = forwardRef((props: any, ref) => {
                         </label>
                     </div>
                 </div>
+            </div>}
+
+            {type === 'explore' && <div className="md-row" style={{
+                maxHeight: 500,
+                overflowY: "auto"
+            }}>
+                <div className="md-col-12 md-mb-12">Banner upload</div>
+
+                <div className="md-col-12">
+                    <h3 className="md-fs-12 md-fw-500 md-m-0 md-mb-4">
+                        Tên bài viết
+                    </h3>
+
+                    <MController
+                        name="explore_name"
+                        control={control}
+                        render={({ field }: any) => {
+                            return (
+                                <AInput
+                                    placeholder={"Nhập tên bài viết"}
+                                    value={field.value || ""}
+                                    onChange={(e: any) => {
+                                        field.onChange(e)
+                                    }}
+                                />
+                            );
+                        }}
+                    />
+                </div>
+
+                <div className="md-col-12 md-mt-12">
+                    <h3 className="md-fs-12 md-fw-500 md-m-0 md-mb-4">
+                        Tags
+                    </h3>
+
+                    <AInput
+                        placeholder={"Nhập tag để thêm"}
+                        value={inputTag}
+                        onChange={(e: any) => {
+                            setInputTag(e);
+                        }}
+                        onKeyEnter={(value: any) => {
+                            const previousValue = Hwatch("explore_tag");
+                            let final: any = [...previousValue, value];
+
+                            HsetValue("explore_tag", final);
+                            setInputTag('');
+                            return;
+                        }}
+                    />
+
+                    <MController
+                        name="explore_tag"
+                        control={control}
+                        render={({ field }: any) => {
+                            return (
+                                <div className="md-mt-8 md-d-flex md-wrap">
+                                    {field.value.map((value: any, id: any) => <BadgesWClose key={id} item={value} onRemove={(e: string) => {
+                                        let final = field.value.filter((y: any) => y !== e)
+                                        field.onChange(final)
+                                    }} />)
+                                    }
+                                </div>
+                            );
+                        }}
+                    />
+                </div>
+
+                <div className="md-col-12 md-mt-12">
+                    <h3 className="md-fs-12 md-fw-500 md-m-0 md-mb-4">
+                        Mô tả bài viết
+                    </h3>
+                    <MController
+                        name="explore_description"
+                        control={control}
+                        render={({ field }: any) => {
+                            return (
+                                <ATextArea
+                                    placeholder={"Nhập mô tả"}
+                                    value={field.value || ""}
+                                    onChange={(e: any) => {
+                                        field.onChange(e)
+                                    }}
+                                />
+                            );
+                        }}
+                    />
+                </div>
+
+                <div className="md-col-12 md-mt-12 md-relative">
+                    {isLoadingUpload && <div className="md-d-flex md-justify-center md-items-center md-absolute" style={{
+                        width: "100%",
+                        height: "100%",
+                        top: "50%",
+                        left: '50%',
+                        transform: "translate(-50%, -50%)",
+                        background: '#ffffff',
+                        zIndex: 99999,
+                        borderRadius: 8,
+                        opacity: 0.6
+                    }}>
+                        <Spinner />
+                    </div>}
+
+                    <h3 className="md-fs-12 md-fw-500 md-m-0 md-mb-4">
+                        Hình ảnh
+                    </h3>
+
+                    <div style={{
+                        maxHeight: 300,
+                        overflowY: 'auto'
+                    }}
+                        className="md-mt-8 md-row"
+                    >
+                        <MController
+                            name="explore_collection"
+                            control={control}
+                            render={({ field }: any) => {
+                                return (
+                                    <>
+                                        {field.value.map((img: string, index: string) => {
+                                            return <SampleImage src={img} key={index} className="md-col-3" onRemove={(value: any) => {
+                                                let final = field.value.filter((y: any) => y !== value)
+                                                field.onChange(final);
+                                            }} />
+                                        })}
+                                    </>
+                                );
+                            }}
+                        />
+
+
+                        <label className="md-col-3 md-d-flex md-flex-col md-items-center md-justify-center md-relative" style={{
+                            aspectRatio: "1 / 1",
+                            borderRadius: "8px",
+                            border: "1px solid #adb5bd",
+                            cursor: 'pointer'
+                        }} htmlFor="formId" onChange={(e) => {
+                            handleChangeFile(e)
+                        }}>
+                            <input name="" type="file" id="formId" hidden style={{
+                                background: "red",
+                                width: '100%',
+                                height: '100%',
+                                position: 'absolute',
+                                borderRadius: "8px",
+                            }}
+                                multiple
+                                accept="image/png, image/gif, image/jpeg"
+                            />
+                            {svgImageAdd}
+                        </label>
+                    </div>
+                </div>
             </div>
-
-
+            }
 
             <div className="md-mt-20 md-d-flex md-justify-end">
                 <Button type="submit" content="Lưu" status="success" />

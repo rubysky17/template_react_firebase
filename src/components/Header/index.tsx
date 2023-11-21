@@ -1,4 +1,3 @@
-import useTranslation from "../../hooks/useTranslate/useTranslation";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import Input from "../Input";
@@ -10,7 +9,6 @@ import "./styles.scss";
 
 
 function Header() {
-    const { t } = useTranslation();
     const navigate: any = useNavigate();
     const location = useLocation();
     const path = location?.pathname || "";

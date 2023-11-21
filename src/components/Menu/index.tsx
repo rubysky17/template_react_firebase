@@ -2,7 +2,6 @@ import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { MENU_CONSTANT } from "../../constants/constants"
 
-import useTranslation from "../../hooks/useTranslate/useTranslation";
 import useWindowDimension from "../../hooks/useWindowDimension/useWindowDimension"
 
 import Map from "../Map"
@@ -10,7 +9,6 @@ import Map from "../Map"
 function MenuList() {
     const { width } = useWindowDimension();
     const refMenu = useRef<any>(null);
-    const { t } = useTranslation();
     const navigate = useNavigate();
 
     // ! Width sẽ theo tỉ lệ của chiều cao màn hình nếu dưới 992px

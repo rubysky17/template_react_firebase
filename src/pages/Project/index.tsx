@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import GridSystem from "../../components/Grid"
-import { getList } from "../../constants/firebase";
+import { getListWithOrderBy } from "../../constants/firebase";
 import { SkeletonList } from "../../components/SkeletonLoading";
 
 function ProjectPage() {
@@ -10,7 +10,7 @@ function ProjectPage() {
     useEffect(() => {
         setIsLoadingList(true)
 
-        getList("projects")
+        getListWithOrderBy("projects", 'project_year', "desc")
             .then((res) => {
                 setListProject(res);
                 setIsLoadingList(false);

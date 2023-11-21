@@ -9,6 +9,7 @@ import Lightbox from 'yet-another-react-lightbox';
 
 import "./styles.scss";
 import { SkeletonProject } from '../../components/SkeletonLoading';
+import moment from 'moment';
 
 function ProjectDetailPage() {
     const { width } = useWindowDimensions();
@@ -50,7 +51,7 @@ function ProjectDetailPage() {
                 </div>
 
                 <h2 className="md-uppercase md-fw-700 md-fs-14 md-md-fs-16 md-mb-4">{t('project_year')}</h2>
-                <p className="md-fs-12 md-md-fs-14 md-mb-10 md-font-primary md-fw-300">{detailProject.project_year}</p>
+                <p className="md-fs-12 md-md-fs-14 md-mb-10 md-font-primary md-fw-300">{moment(detailProject.project_year).format("DD/MM/YYYY")}</p>
 
                 <div className="md-row" style={{
                     marginRight: '-10px',
