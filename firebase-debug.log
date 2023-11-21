@@ -1,0 +1,41 @@
+[debug] [2023-11-21T15:43:33.120Z] ----------------------------------------------------------------------
+[debug] [2023-11-21T15:43:33.121Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2023-11-21T15:43:33.121Z] CLI Version:   12.4.7
+[debug] [2023-11-21T15:43:33.121Z] Platform:      darwin
+[debug] [2023-11-21T15:43:33.122Z] Node Version:  v20.9.0
+[debug] [2023-11-21T15:43:33.122Z] Time:          Tue Nov 21 2023 22:43:33 GMT+0700 (Indochina Time)
+[debug] [2023-11-21T15:43:33.122Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-11-21T15:43:33.158Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-11-21T15:43:33.158Z] > authorizing via signed-in user (vomanhdat10998@gmail.com)
+[debug] [2023-11-21T15:43:33.158Z] [iam] checking project md-woaa-project for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]
+[debug] [2023-11-21T15:43:33.159Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/md-woaa-project:testIamPermissions [none]
+[debug] [2023-11-21T15:43:33.159Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/md-woaa-project:testIamPermissions x-goog-quota-user=projects/md-woaa-project
+[debug] [2023-11-21T15:43:33.159Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/md-woaa-project:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]}
+[debug] [2023-11-21T15:43:34.128Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/md-woaa-project:testIamPermissions 200
+[debug] [2023-11-21T15:43:34.129Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/md-woaa-project:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]}
+[debug] [2023-11-21T15:43:34.130Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/md-woaa-project [none]
+[debug] [2023-11-21T15:43:34.456Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/md-woaa-project 200
+[debug] [2023-11-21T15:43:34.457Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/md-woaa-project {"projectId":"md-woaa-project","projectNumber":"500055500777","displayName":"md-woaa-project","name":"projects/md-woaa-project","resources":{"hostingSite":"md-woaa-project","storageBucket":"md-woaa-project.appspot.com","locationId":"asia-southeast1"},"state":"ACTIVE","etag":"1_ded88038-76a8-4792-a429-e7f9b13338fb"}
+[info] 
+[info] === Deploying to 'md-woaa-project'...
+[info] 
+[info] i  deploying storage, firestore, hosting 
+[debug] [2023-11-21T15:43:34.462Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/md-woaa-project [none]
+[debug] [2023-11-21T15:43:34.852Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/md-woaa-project 200
+[debug] [2023-11-21T15:43:34.852Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/md-woaa-project {"projectId":"md-woaa-project","projectNumber":"500055500777","displayName":"md-woaa-project","name":"projects/md-woaa-project","resources":{"hostingSite":"md-woaa-project","storageBucket":"md-woaa-project.appspot.com","locationId":"asia-southeast1"},"state":"ACTIVE","etag":"1_ded88038-76a8-4792-a429-e7f9b13338fb"}
+[info] i  firebase.storage: checking storage.rules for compilation errors... 
+[debug] [2023-11-21T15:43:34.854Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/md-woaa-project:test [none]
+[debug] [2023-11-21T15:43:34.854Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/md-woaa-project:test [omitted]
+[debug] [2023-11-21T15:43:35.950Z] <<< [apiv2][status] POST https://firebaserules.googleapis.com/v1/projects/md-woaa-project:test 200
+[debug] [2023-11-21T15:43:35.950Z] <<< [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/md-woaa-project:test {}
+[info] ✔  firebase.storage: rules file storage.rules compiled successfully 
+[info] i  firestore: reading indexes from firestore.indexes.json... 
+[info] i  cloud.firestore: checking firestore.rules for compilation errors... 
+[debug] [2023-11-21T15:43:35.952Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/md-woaa-project:test [none]
+[debug] [2023-11-21T15:43:35.952Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/md-woaa-project:test [omitted]
+[debug] [2023-11-21T15:43:36.982Z] <<< [apiv2][status] POST https://firebaserules.googleapis.com/v1/projects/md-woaa-project:test 200
+[debug] [2023-11-21T15:43:36.982Z] <<< [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/md-woaa-project:test {}
+[info] ✔  cloud.firestore: rules file firestore.rules compiled successfully 
+[debug] [2023-11-21T15:43:36.988Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/md-woaa-project/versions [none]
+[debug] [2023-11-21T15:43:36.988Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/md-woaa-project/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
