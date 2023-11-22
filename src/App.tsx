@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useLocalStorage } from "./hooks/useStorage/useStorage";
 import { routes } from "./routes/routes";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { Provider } from "./AppProvider/context";
 
 function App() {
   const [language, setLanguage] = useLocalStorage("language");
@@ -18,13 +19,16 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
-        <Routes>
-          {routes.map((route: any) => {
-            return <Route path={route.path} element={route.element} />
-          })}
-        </Routes>
-      </Router>
+      <Provider>
+        <Router>
+          <Routes>
+            {routes.map((route: any) => {
+              return <Route path={route.path} element={route.element} />
+            })}
+          </Routes>
+        </Router>
+      </Provider>
+
     </div>
   );
 }

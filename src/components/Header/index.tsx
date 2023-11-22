@@ -8,7 +8,8 @@ import Logo from "../../assets/images/logo.png";
 import "./styles.scss";
 
 
-function Header() {
+function Header(props: any) {
+    const { keySearch, onSearch } = props;
     const navigate: any = useNavigate();
     const location = useLocation();
     const path = location?.pathname || "";
@@ -32,7 +33,7 @@ function Header() {
                     })}
                 </ul>
 
-                <Input isHasIcon />
+                <Input isHasIcon value={keySearch} onChange={onSearch} />
             </div>
         </div>
     )

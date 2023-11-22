@@ -1,7 +1,7 @@
 import "./styles.scss";
 
 function Input(props: any) {
-    const { isHasIcon, customClass } = props
+    const { isHasIcon, customClass, value, onChange } = props
 
     return (
         <div className="input-icons">
@@ -9,7 +9,9 @@ function Input(props: any) {
 
             <input style={{
                 width: '100%'
-            }} className={`md-header-search ${customClass}`} />
+            }} className={`md-header-search ${customClass}`} value={value} onChange={(e) => {
+                onChange && onChange(e.target.value)
+            }} />
         </div>
     )
 }
