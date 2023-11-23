@@ -66,7 +66,6 @@ const Form = forwardRef((props: any, ref) => {
             const final = [...previousValue, ...urls];
 
             HsetValue("project_collection", final)
-            console.log("tạo", final)
         }
 
         // & Upload file cho Explore

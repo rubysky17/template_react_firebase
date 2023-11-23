@@ -54,7 +54,7 @@ function ExploreDetailPage() {
                             </div>
                         </div>
 
-                        <div className="md-col-12 md-md-col-6 md-pr-30">
+                        <div className="md-col-12 md-md-col-6 md-pr-30 md-mb-30 md-md-mb-0">
                             <p className='md-fs-14 md-md-fs-16 md-mb-0 md-font-primary md-fw-100' style={{
                                 lineHeight: "18px"
                             }} dangerouslySetInnerHTML={{
@@ -72,7 +72,7 @@ function ExploreDetailPage() {
                                 }} key={idx} onClick={() => {
                                     setIndexPicture(idx)
                                 }
-                                } className={`md-py-20 ${idx % 2 === 0 ? "md-pr-20" : 'md-pl-20'}`}>
+                                } className={`md-md-py-20 md-py-8 ${idx % 2 === 0 ? "md-md-pr-20 md-pr-8" : 'md-md-pl-20 md-pl-8'}`}>
                                     <img src={imgSrc} style={{
                                         width: '100%',
                                         height: '100%',

@@ -1,12 +1,15 @@
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { useStore } from "../../AppProvider/context/store";
+import useWindowDimension from "../../hooks/useWindowDimension/useWindowDimension"
+
 import { MENU_CONSTANT } from "../../constants/constants"
 
-import useWindowDimension from "../../hooks/useWindowDimension/useWindowDimension"
 
 import Map from "../Map"
 
 function MenuList() {
+    const { dispatch, actions } = useStore();
     const { width } = useWindowDimension();
     const refMenu = useRef<any>(null);
     const navigate = useNavigate();
@@ -25,7 +28,9 @@ function MenuList() {
                     width: widthConfig
                 }}>
                     {item.type === 'image' ? <img alt="img_menu" src={item.image} className="md-custom-menu md-cursor-pointer" onClick={() => {
-                        navigate(item.path)
+                        dispatch(actions.setKeySearch(""));
+
+                        navigate(item.path);
                     }} /> : <div style={{
                         borderRadius: '50%',
                         aspectRatio: "1 / 1",
@@ -48,7 +53,9 @@ function MenuList() {
                         transform: `translate(-50%, -50%)`,
                         zIndex: 3
                     }} dangerouslySetInnerHTML={{ __html: item.detail }} onClick={() => {
-                        navigate(item.path)
+                        dispatch(actions.setKeySearch(""));
+
+                        navigate(item.path);
                     }} />}
                 </div>
             })}

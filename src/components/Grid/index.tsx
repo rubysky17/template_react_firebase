@@ -1,10 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import "./styles.scss"
 import { dimensionURL } from "../../helpers/helpers";
+import { useStore } from "../../AppProvider/context/store";
 
 function GridSystem(props: any) {
     const navigate = useNavigate();
     const { list, type } = props;
+    const { dispatch, actions } = useStore();
 
     const handleClickDetail = (id: any) => {
         navigate(`${id}`)
@@ -53,7 +55,9 @@ function GridSystem(props: any) {
 
                                         <div className="md-d-flex md-justify-center md-wrap">
                                             {item[tag].map((tag: any, idx: any) => {
-                                                return <p className="postlist_item_subtitle md-font-primary md-fw-300" key={idx}>#{tag}</p>
+                                                return <p className="postlist_item_subtitle md-font-primary md-fw-300 md-cursor-pointer" key={idx} onClick={() => {
+                                                    dispatch(actions.setKeySearch(tag))
+                                                }}>#{tag}</p>
                                             })}
                                         </div>
                                     </div>

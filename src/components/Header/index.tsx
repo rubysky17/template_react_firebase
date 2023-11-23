@@ -1,4 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
+import { useStore } from "../../AppProvider/context/store";
 
 import Input from "../Input";
 
@@ -9,6 +10,7 @@ import "./styles.scss";
 
 
 function Header(props: any) {
+    const { dispatch, actions } = useStore();
     const { keySearch, onSearch } = props;
     const navigate: any = useNavigate();
     const location = useLocation();
@@ -26,6 +28,8 @@ function Header(props: any) {
                         return <li key={`${idx}`} className={`${path.includes(menu.name.toLowerCase()) ? "md-header-menu-item-active " : ""
                             } md-header-menu-item ${MENU_CONSTANT.length - 1 !== idx ? "md-mr-40" : ""}`}
                             onClick={() => {
+                                dispatch(actions.setKeySearch(""));
+
                                 navigate(menu.path)
                             }}
                         >{menu.name}
@@ -33,7 +37,7 @@ function Header(props: any) {
                     })}
                 </ul>
 
-                <Input isHasIcon value={keySearch} onChange={onSearch} />
+                <Input isHasIcon value={keySearch} onChange={onSearch} placeholder="Vui lòng nhập tag" />
             </div>
         </div>
     )
