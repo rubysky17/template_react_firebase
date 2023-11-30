@@ -2,7 +2,7 @@
     height: 17px;
     border: none;
     outline: none;
-    background: #dcd7cd
+    background: #dcd7cd;
 }
 
 
@@ -10,12 +10,13 @@
     position: relative;
 }
 
-.input-icons i {
+.input-icons svg {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    left: 6px;
 }
 
 .input-icons input {
-    padding-left: 16px;
+    padding: 0 12px 0 24px;
 }

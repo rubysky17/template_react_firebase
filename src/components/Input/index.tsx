@@ -1,11 +1,14 @@
 import "./styles.scss";
 
+import { CiSearch } from "react-icons/ci";
+
+
 function Input(props: any) {
     const { isHasIcon, customClass, value, onChange, placeholder } = props
 
     return (
         <div className="input-icons">
-            {isHasIcon && <i className="fa fa-search"></i>}
+            {isHasIcon && <CiSearch />}
 
             <input style={{
                 width: '100%'

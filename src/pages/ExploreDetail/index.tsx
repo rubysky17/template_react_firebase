@@ -1,15 +1,22 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import useTranslation from '../../hooks/useTranslate/useTranslation';
 
 import { getDocById } from '../../constants/firebase';
 import Lightbox from 'yet-another-react-lightbox';
 import { SkeletonExplore } from '../../components/SkeletonLoading';
+import { buildQueryString } from '../../helpers/helpers';
+import useHistory from '../../hooks/useHistory';
+import { useStore } from '../../AppProvider/context/store';
 
 function ExploreDetailPage() {
     const [detailExplore, setDetailExplore] = useState<any>({});
     const [isLoadingExplore, setIsLoadingExplore] = useState(false);
     const [indexPicture, setIndexPicture] = useState(-1);
+
+    const { push } = useHistory();
+    const location = useLocation();
+    const { dispatch, actions } = useStore();
 
     const { id } = useParams();
     const { t } = useTranslation();
@@ -49,7 +56,14 @@ function ExploreDetailPage() {
 
                             <div className="md-d-flex md-mb-10">
                                 {detailExplore?.explore_tag?.map((tag: any, idx: any) => {
-                                    return <p className="md-fs-14 md-md-fs-16 md-mb-0 md-mr-4 md-font-primary md-fw-100" key={idx}>#{tag}</p>
+                                    return <p className="md-fs-14 md-md-fs-16 md-mb-0 md-mr-4 md-font-primary md-fw-100" key={idx} onClick={() => {
+                                        dispatch(actions.setKeySearch(tag));
+
+                                        const queryParam = buildQueryString({
+                                            key: tag
+                                        })
+                                        push(`${location.pathname}${queryParam}`);
+                                    }}>#{tag}</p>
                                 })}
                             </div>
                         </div>
