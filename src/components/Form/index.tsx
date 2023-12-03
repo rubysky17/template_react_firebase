@@ -15,6 +15,7 @@ import { storage } from '../../constants/firebase';
 import { EXPLORE_DEFAULT, PROJECT_DEFAULT } from '../../pages/Admin/Detail/context/store/constants';
 
 import "react-datepicker/dist/react-datepicker.css";
+import AspectRatioContainer from '../AspectRatio';
 
 const MDatePicker: any = DatePicker;
 
@@ -301,26 +302,32 @@ const Form = forwardRef((props: any, ref) => {
                         />
 
 
-                        <label className="md-col-3 md-d-flex md-flex-col md-items-center md-justify-center md-relative" style={{
-                            aspectRatio: "1 / 1",
-                            borderRadius: "8px",
-                            border: "1px solid #adb5bd",
-                            cursor: 'pointer'
-                        }} htmlFor="formId" onChange={(e) => {
-                            handleChangeFile(e)
-                        }}>
-                            <input name="" type="file" id="formId" hidden style={{
-                                background: "red",
-                                width: '100%',
-                                height: '100%',
-                                position: 'absolute',
+                        <AspectRatioContainer aspectRatio={1 / 1}>
+                            <label className="md-col-3 md-d-flex md-flex-col md-items-center md-justify-center md-relative" style={{
+                                width: "100%",
+                                height: "100%",
                                 borderRadius: "8px",
-                            }}
-                                multiple
-                                accept="image/png, image/gif, image/jpeg"
-                            />
-                            {svgImageAdd}
-                        </label>
+                                border: "1px solid #adb5bd",
+                                cursor: 'pointer'
+                            }} htmlFor="formId" onChange={(e) => {
+                                handleChangeFile(e)
+                            }}>
+                                <input name="" type="file" id="formId" hidden style={{
+                                    background: "red",
+                                    width: '100%',
+                                    height: '100%',
+                                    position: 'absolute',
+                                    borderRadius: "8px",
+                                }}
+                                    multiple
+                                    accept="image/png, image/gif, image/jpeg"
+                                />
+                                {svgImageAdd}
+                            </label>
+                        </AspectRatioContainer>
+
+
+
                     </div>
                 </div>
             </div>}

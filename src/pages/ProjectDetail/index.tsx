@@ -13,6 +13,7 @@ import moment from 'moment';
 import { useStore } from '../../AppProvider/context/store';
 import { buildQueryString } from '../../helpers/helpers';
 import useHistory from '../../hooks/useHistory';
+import AspectRatioContainer from '../../components/AspectRatio';
 
 function ProjectDetailPage() {
     const { width } = useWindowDimensions();
@@ -71,14 +72,16 @@ function ProjectDetailPage() {
                 }}>
                     {detailProject.project_collection?.map((imgSrc: any, idx: any) => {
                         return <div style={{
-                            aspectRatio: '1 / 1',
                         }} className="md-p-10 md-project-detail-picture" key={idx} onClick={() => {
                             setIndexPicture(idx)
                         }}>
-                            <img src={imgSrc} style={{
-                                width: '100%',
-                                height: '100%',
-                            }} alt="img_detai_project" className="md-cursor-pointer " />
+                            <AspectRatioContainer aspectRatio={1 / 1}>
+                                <img src={imgSrc} style={{
+                                    width: '100%',
+                                    height: '100%',
+                                }} alt="img_detai_project" className="md-cursor-pointer " />
+                            </AspectRatioContainer>
+
                         </div>
                     })}
                 </div>

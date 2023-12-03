@@ -7,6 +7,7 @@ import { MENU_CONSTANT } from "../../constants/constants"
 
 
 import Map from "../Map"
+import AspectRatioContainer from "../AspectRatio";
 
 function MenuList() {
     const { dispatch, actions } = useStore();
@@ -27,21 +28,27 @@ function MenuList() {
                     height: widthConfig,
                     width: widthConfig
                 }}>
-                    {item.type === 'image' ? <img alt="img_menu" src={item.image} className="md-custom-menu md-cursor-pointer" onClick={() => {
-                        dispatch(actions.setKeySearch(""));
+                    {item.type === 'image' ? <AspectRatioContainer aspectRatio={1 / 1}>
+                        <img alt="img_menu" src={item.image} className="md-custom-menu md-cursor-pointer" onClick={() => {
+                            dispatch(actions.setKeySearch(""));
 
-                        navigate(item.path);
-                    }} /> : <div style={{
-                        borderRadius: '50%',
-                        aspectRatio: "1 / 1",
-                        overflow: 'hidden',
-                        position: 'relative',
-                        top: "50%",
-                        left: "50%",
-                        transform: "translate(-50%, -50%)",
-                    }}>
-                        <Map />
-                    </div>}
+                            navigate(item.path);
+                        }} />
+                    </AspectRatioContainer> :
+                        <AspectRatioContainer aspectRatio={1 / 1}>
+                            <div style={{
+                                borderRadius: '50%',
+                                width: "100%",
+                                height: "100%",
+                                overflow: 'hidden',
+                                position: 'relative',
+                                top: "50%",
+                                left: "50%",
+                                transform: "translate(-50%, -50%)",
+                            }}>
+                                <Map />
+                            </div>
+                        </AspectRatioContainer>}
 
                     {item.type === 'image' ? <h2 className="md-font-secondary md-fs-10 md-md-fs-14 md-lg-fs-16 md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
                         top: "50%",

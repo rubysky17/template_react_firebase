@@ -48,6 +48,7 @@ const ExploreDetailLayout = ({ children }: any) => {
         } else {
             dispatch(actions.setKeySearch(''))
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [location.search])
 
 

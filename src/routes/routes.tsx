@@ -1,4 +1,4 @@
-import { HomePage, ProjectPage, ContactPage, ExplorePage, ProjectDetailPage, ExploreDetailPage, AdminPage, AdminDetailPage, SearchPage } from "../pages";
+import { HomePage, ProjectPage, ContactPage, ExplorePage, ProjectDetailPage, ExploreDetailPage, AdminPage, AdminDetailPage } from "../pages";
 
 import MasterLayout from "../HOC/MasterLayout";
 import ExploreDetailLayout from "../HOC/ExploreDetailLayout";

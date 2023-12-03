@@ -8,6 +8,7 @@ import { SkeletonExplore } from '../../components/SkeletonLoading';
 import { buildQueryString } from '../../helpers/helpers';
 import useHistory from '../../hooks/useHistory';
 import { useStore } from '../../AppProvider/context/store';
+import AspectRatioContainer from '../../components/AspectRatio';
 
 function ExploreDetailPage() {
     const [detailExplore, setDetailExplore] = useState<any>({});
@@ -82,15 +83,13 @@ function ExploreDetailPage() {
                             {detailExplore.explore_collection?.map((imgSrc: any, idx: any) => {
                                 return <div style={{
                                     width: `calc(100% / 2)`,
-                                    aspectRatio: '1 / 1',
-                                }} key={idx} onClick={() => {
-                                    setIndexPicture(idx)
-                                }
-                                } className={`md-md-py-20 md-py-8 ${idx % 2 === 0 ? "md-md-pr-20 md-pr-8" : 'md-md-pl-20 md-pl-8'}`}>
-                                    <img src={imgSrc} style={{
-                                        width: '100%',
-                                        height: '100%',
-                                    }} alt="img_detai_project" className="md-cursor-pointer" />
+                                }} className={`md-md-py-20 md-py-8 ${idx % 2 === 0 ? "md-md-pr-20 md-pr-8" : 'md-md-pl-20 md-pl-8'}`} key={idx} onClick={() => { setIndexPicture(idx) }}>
+                                    <AspectRatioContainer aspectRatio={1 / 1}>
+                                        <img src={imgSrc} style={{
+                                            width: '100%',
+                                            height: '100%',
+                                        }} alt="img_detai_project" className="md-cursor-pointer " />
+                                    </AspectRatioContainer>
                                 </div>
                             })}
                         </div>

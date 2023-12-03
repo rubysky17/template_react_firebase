@@ -40,7 +40,7 @@ function ContactPage() {
                 <p className="md-fs-12 md-md-fs-14 md-mb-16">+84 1212121212</p>
 
                 <h2 className="md-fw-700 md-fs-14 md-md-fs-16 md-mb-4">{t('mail')}</h2>
-                <a className="md-fs-12 md-md-fs-14 md-mb-16 md-cursor-pointer md-text-color-black-1" href="mailto:woaarchitects.info@gmail.com" target="_blank">woaarchitects.info@gmail.com</a>
+                <a className="md-fs-12 md-md-fs-14 md-mb-16 md-cursor-pointer md-text-color-black-1" href="mailto:woaarchitects.info@gmail.com" target="_blank" rel="noreferrer">woaarchitects.info@gmail.com</a>
 
                 <h2 className="md-fw-700 md-fs-14 md-md-fs-16 md-mb-4 md-mt-16">{t('follow us')}</h2>
 

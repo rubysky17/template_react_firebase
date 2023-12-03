@@ -10,6 +10,7 @@ import Form from '../../../../../components/Form';
 import Spinner from '../../../../../components/Spinner';
 import { ToastContainer, toast } from 'react-toastify';
 import Button from '../../../../../components/Button';
+import AspectRatioContainer from '../../../../../components/AspectRatio';
 
 function ExploreWrapper() {
     const { state, dispatch, actions } = useStore();
@@ -64,14 +65,17 @@ function ExploreWrapper() {
                 return <div className='md-d-flex'>
                     {value.explore_collection.length ? <>
                         {value?.explore_collection?.slice(0, 3).map((imgSrc: any, idx: any) => {
-                            return <div style={{
-                                aspectRatio: '1 / 1',
-                            }} className="md-pr-10 md-project-detail-picture" key={idx} >
-                                <img src={imgSrc} style={{
-                                    width: '100%',
-                                    height: '100%',
-                                }} alt="img_detai_project" className="md-cursor-pointer " />
-                            </div>
+                            return <AspectRatioContainer aspectRatio={1 / 1}>
+                                <div style={{
+                                    width: "100%",
+                                    height: "100%"
+                                }} className="md-pr-10 md-project-detail-picture" key={idx} >
+                                    <img src={imgSrc} style={{
+                                        width: '100%',
+                                        height: '100%',
+                                    }} alt="img_detai_project" className="md-cursor-pointer " />
+                                </div>
+                            </AspectRatioContainer>
                         })}
                     </> : "--"
                     }

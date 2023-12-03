@@ -1,5 +1,6 @@
 import React from 'react'
 import Skeleton from 'react-loading-skeleton'
+import AspectRatioContainer from '../../AspectRatio'
 
 function SkeletonExplore() {
     return (
@@ -22,15 +23,17 @@ function SkeletonExplore() {
                 marginTop: '-20px'
             }}>
                 {Array(4).fill(0)?.map((_: any, idx: any) => {
-                    return <div style={{
-                        width: `calc(100% / 2)`,
-                        height: `calc(100% / 2)`,
-                        aspectRatio: '1 / 1',
-                    }} key={idx} className={`md-py-20 ${idx % 2 === 0 ? "md-pr-20" : 'md-pl-20'}`}>
-                        <Skeleton baseColor="#adb5bd" width={"100%"} height={"100%"} />
+                    return <AspectRatioContainer aspectRatio={1 / 1}>
+                        <div style={{
+                            width: `calc(100% / 2)`,
+                            height: `calc(100% / 2)`,
+                        }} key={idx} className={`md-py-20 ${idx % 2 === 0 ? "md-pr-20" : 'md-pl-20'}`}>
+                            <Skeleton baseColor="#adb5bd" width={"100%"} height={"100%"} />
 
 
-                    </div>
+                        </div>
+                    </AspectRatioContainer>
+
                 })}
             </div>
         </>
