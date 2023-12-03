@@ -28,12 +28,27 @@ function MenuList() {
                     height: widthConfig,
                     width: widthConfig
                 }}>
-                    {item.type === 'image' ? <AspectRatioContainer aspectRatio={1 / 1}>
+                    {item.type === 'image' ? <AspectRatioContainer aspectRatio={1 / 1} >
                         <img alt="img_menu" src={item.image} className="md-custom-menu md-cursor-pointer" onClick={() => {
                             dispatch(actions.setKeySearch(""));
 
                             navigate(item.path);
                         }} />
+
+                        {item.type === 'image' ? <h2 className="md-font-secondary md-fs-10 md-md-fs-14 md-lg-fs-16 md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
+                            top: "50%",
+                            left: '50%',
+                            transform: `translate(-50%, -50%)`,
+                        }}>{item.name}</h2> : <h2 className="md-font-secondary md-fs-10 md-md-fs-14 md-lg-fs-16 md-text-center md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
+                            top: "50%",
+                            left: '50%',
+                            transform: `translate(-50%, -50%)`,
+                            zIndex: 3
+                        }} dangerouslySetInnerHTML={{ __html: item.detail }} onClick={() => {
+                            dispatch(actions.setKeySearch(""));
+
+                            navigate(item.path);
+                        }} />}
                     </AspectRatioContainer> :
                         <AspectRatioContainer aspectRatio={1 / 1}>
                             <div style={{
@@ -48,22 +63,24 @@ function MenuList() {
                             }}>
                                 <Map />
                             </div>
+
+                            {item.type === 'image' ? <h2 className="md-font-secondary md-fs-10 md-md-fs-14 md-lg-fs-16 md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
+                                top: "50%",
+                                left: '50%',
+                                transform: `translate(-50%, -50%)`,
+                            }}>{item.name}</h2> : <h2 className="md-font-secondary md-fs-10 md-md-fs-14 md-lg-fs-16 md-text-center md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
+                                top: "50%",
+                                left: '50%',
+                                transform: `translate(-50%, -50%)`,
+                                zIndex: 3
+                            }} dangerouslySetInnerHTML={{ __html: item.detail }} onClick={() => {
+                                dispatch(actions.setKeySearch(""));
+
+                                navigate(item.path);
+                            }} />}
                         </AspectRatioContainer>}
 
-                    {item.type === 'image' ? <h2 className="md-font-secondary md-fs-10 md-md-fs-14 md-lg-fs-16 md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
-                        top: "50%",
-                        left: '50%',
-                        transform: `translate(-50%, -50%)`,
-                    }}>{item.name}</h2> : <h2 className="md-font-secondary md-fs-10 md-md-fs-14 md-lg-fs-16 md-text-center md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
-                        top: "50%",
-                        left: '50%',
-                        transform: `translate(-50%, -50%)`,
-                        zIndex: 3
-                    }} dangerouslySetInnerHTML={{ __html: item.detail }} onClick={() => {
-                        dispatch(actions.setKeySearch(""));
 
-                        navigate(item.path);
-                    }} />}
                 </div>
             })}
         </div>

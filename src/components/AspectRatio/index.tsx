@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-const AspectRatioContainer = ({ aspectRatio, children }: any) => {
+const AspectRatioContainer = ({ aspectRatio, className, children }: any) => {
     const containerRef = useRef<any>();
 
     useEffect(() => {
@@ -24,7 +24,7 @@ const AspectRatioContainer = ({ aspectRatio, children }: any) => {
     }, [aspectRatio]);
 
     return (
-        <div ref={containerRef} style={{ position: 'relative', width: '100%' }}>
+        <div ref={containerRef} style={{ position: 'relative', width: '100%' }} className={className}>
             <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
                 {children}
             </div>
