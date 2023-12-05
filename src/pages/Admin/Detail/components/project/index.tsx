@@ -59,17 +59,19 @@ function ProjectWrapper() {
                 return <div className='md-d-flex'>
                     {value.project_collection.length ? <>
                         {value.project_collection?.slice(0, 3).map((imgSrc: any, idx: any) => {
-                            return <AspectRatioContainer aspectRatio={1 / 1}>
-                                <div style={{
-                                    width: "100%",
-                                    height: "100%"
-                                }} className="md-pr-10 md-project-detail-picture" key={idx} >
-                                    <img src={imgSrc} style={{
-                                        width: '100%',
-                                        height: '100%',
-                                    }} alt="img_detai_project" className="md-cursor-pointer " />
-                                </div>
-                            </AspectRatioContainer>
+                            return <div className="md-col-4">
+                                <AspectRatioContainer aspectRatio={1 / 1}>
+                                    <div style={{
+                                        width: `100%`,
+                                        height: `100%`
+                                    }} className="md-pr-10 md-project-detail-picture" key={idx} >
+                                        <img src={imgSrc} style={{
+                                            width: `100%`,
+                                            height: `100%`,
+                                        }} alt="img_detai_project" className="md-cursor-pointer " />
+                                    </div>
+                                </AspectRatioContainer>
+                            </div>
                         })}
                     </> : "--"
                     }
