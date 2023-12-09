@@ -52,6 +52,21 @@ function Search(props: any) {
                 finalResult = [...finalResult, ...resultProject]
             });
 
+            keySearchArray.forEach((value: any) => {
+                let key = value.trim().toLowerCase();
+
+                let resultProject = mergeData.filter(y => {
+                    if (y?.hasOwnProperty("project_name")) {
+                        return slugify(y.project_name).includes(slugify(key))
+                    }
+                    else {
+                        return slugify(y.explore_name).includes(slugify(key))
+                    }
+                });
+
+                finalResult = [...finalResult, ...resultProject]
+            });
+
             // ! Làm sạch mảng
             finalResult = uniq(finalResult, "id");
             finalTagExactly = uniqArr(finalTagExactly);
