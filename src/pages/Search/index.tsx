@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import useWindowDimension from "../../hooks/useWindowDimension/useWindowDimension";
 
 import { getList } from "../../constants/firebase";
-import { uniq, uniqArr } from "../../helpers/helpers";
+import { slugify, uniq, uniqArr } from "../../helpers/helpers";
 import { useStore } from "../../AppProvider/context/store";
 
 function Search(props: any) {
@@ -35,16 +35,15 @@ function Search(props: any) {
             let finalResult: any = []
 
             keySearchArray.forEach((value: any) => {
-                let key = value.trim();
-                let result = flatAllTags.filter(item => key.length && item.includes(key));
+                let key = value.trim().toLowerCase();
+                let result = flatAllTags.filter(item => key.length && slugify(item).includes(slugify(key)));
 
                 let resultProject = mergeData.filter(y => {
-
                     if (y?.hasOwnProperty("project_tag")) {
-                        let indexKey = y.project_tag.findIndex((item: any) => key.length && item.includes(key));
+                        let indexKey = y.project_tag.findIndex((item: any) => key.length && slugify(item).toLowerCase().includes(slugify(key)));
                         return indexKey !== -1
                     } else {
-                        let indexKey = y.explore_tag.findIndex((item: any) => key.length && item.includes(key));
+                        let indexKey = y.explore_tag.findIndex((item: any) => key.length && slugify(item).toLowerCase().includes(slugify(key)));
                         return indexKey !== -1
                     }
                 });

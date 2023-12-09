@@ -6,6 +6,7 @@ import useWindowDimensions from "../../hooks/useWindowDimension/useWindowDimensi
 import { FaInstagram } from "react-icons/fa6";
 import { BiLogoFacebook } from "react-icons/bi";
 import { SiZalo } from "react-icons/si";
+import { FaMapMarkedAlt } from "react-icons/fa";
 
 import "./styles.scss";
 
@@ -47,9 +48,13 @@ function ContactPage() {
                 {social.map((link, idx) => {
                     return <a className="md-mr-8" href={link.href} key={idx}>{link.icon}</a>
                 })}
+
+                <h2 className="md-fw-700 md-fs-14 md-md-fs-16 md-mb-4 md-mt-16">{t('map')}</h2>
+
+                <a className="md-fs-12 md-md-fs-14 md-mb-16 md-cursor-pointer md-text-color-black-1" href="https://www.google.com/maps/place/33+L%C3%BD+V%C4%83n+Ph%E1%BB%A9c,+Ph%C6%B0%E1%BB%9Dng+T%C3%A2n+%C4%90%E1%BB%8Bnh,+Qu%E1%BA%ADn+1,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh,+Vi%E1%BB%87t+Nam/@10.7910566,106.691152,17z/data=!3m1!4b1!4m6!3m5!1s0x317528cc9ee44733:0x863342a33fd220e!8m2!3d10.7910566!4d106.6937269!16s%2Fg%2F11gbkqm2lw?hl=vi-VN&entry=ttu" target="_blank" rel="noreferrer">{<FaMapMarkedAlt size={30} color="black" />}</a>
             </div>
 
-            <div className="md-col-12 md-md-col-6 md-lg-col-4">
+            <div className="md-col-12 md-md-col-6 md-lg-col-4 md-mt-16 md-md-mt-0">
                 <Map customClass="map-tiles-circle" />
             </div>
         </div>
