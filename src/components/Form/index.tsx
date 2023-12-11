@@ -15,7 +15,6 @@ import { storage } from '../../constants/firebase';
 import { EXPLORE_DEFAULT, PROJECT_DEFAULT } from '../../pages/Admin/Detail/context/store/constants';
 
 import "react-datepicker/dist/react-datepicker.css";
-import AspectRatioContainer from '../AspectRatio';
 
 const MDatePicker: any = DatePicker;
 
