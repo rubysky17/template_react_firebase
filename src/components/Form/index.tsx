@@ -301,21 +301,21 @@ const Form = forwardRef((props: any, ref) => {
                             }}
                         />
 
-
-                        <AspectRatioContainer aspectRatio={1 / 1}>
-                            <label className="md-col-3 md-d-flex md-flex-col md-items-center md-justify-center md-relative" style={{
-                                width: "100%",
-                                height: "100%",
+                        <div className="md-col-3 md-p-10">
+                            <label className="md-d-flex md-flex-col md-items-center md-justify-center md-relative " style={{
+                                width: '100%',
+                                height: '100%',
                                 borderRadius: "8px",
                                 border: "1px solid #adb5bd",
-                                cursor: 'pointer'
+                                cursor: 'pointer',
+                                aspectRatio: "1 / 1"
                             }} htmlFor="formId" onChange={(e) => {
                                 handleChangeFile(e)
                             }}>
                                 <input name="" type="file" id="formId" hidden style={{
                                     background: "red",
-                                    width: '100%',
-                                    height: '100%',
+                                    // width: '100%',
+                                    // height: '100%',
                                     position: 'absolute',
                                     borderRadius: "8px",
                                 }}
@@ -324,7 +324,7 @@ const Form = forwardRef((props: any, ref) => {
                                 />
                                 {svgImageAdd}
                             </label>
-                        </AspectRatioContainer>
+                        </div>
 
 
 

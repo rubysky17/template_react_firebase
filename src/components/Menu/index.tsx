@@ -34,7 +34,7 @@ function MenuList() {
     }, []);
 
     // ! Width sẽ theo tỉ lệ của chiều cao màn hình nếu dưới 992px
-    const widthConfig = width < 992 ? refMenu?.current?.clientHeight / MENU_CONSTANT.length : ""
+    const widthConfig: any = width < 992 ? refMenu?.current?.clientHeight / MENU_CONSTANT.length : ""
 
     return (
         <div style={{
@@ -85,11 +85,12 @@ function MenuList() {
                                     <Map />
                                 </div>
 
-                                {item.type === 'image' ? <h2 className="md-font-secondary md-fs-10 md-md-fs-14 md-lg-fs-16 md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
+                                {item.type === 'image' ? <h2 className="md-font-secondary md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
                                     top: "50%",
                                     left: '50%',
                                     transform: `translate(-50%, -50%)`,
-                                }}>{item.name}</h2> : <h2 className="md-font-secondary md-fs-10 md-md-fs-14 md-lg-fs-16 md-text-center md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
+                                    fontSize: Math.floor(widthConfig * 0.065)
+                                }} >{item.name}</h2> : <h2 className="md-font-secondary md-fs-10 md-md-fs-14 md-lg-fs-16 md-text-center md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
                                     top: "50%",
                                     left: '50%',
                                     transform: `translate(-50%, -50%)`,

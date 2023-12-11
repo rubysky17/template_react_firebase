@@ -14,5 +14,6 @@
   "content": "Content",
   "attach file": "Attach file",
   "send": "send",
-  "map": "Maps"
+  "map": "Maps",
+  "placeholder_search": "Enter project name, explore name or tag#"
 }

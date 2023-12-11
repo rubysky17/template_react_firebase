@@ -1,11 +1,13 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useStore } from "../../AppProvider/context/store";
+import useTranslation from "../../hooks/useTranslate/useTranslation";
 
 import Input from "../Input";
 
 import { MENU_CONSTANT } from "../../constants/constants";
 
 import Logo from "../../assets/images/logo.png";
+
 import "./styles.scss";
 
 
@@ -14,6 +16,8 @@ function Header(props: any) {
     const { keySearch, onSearch } = props;
     const navigate: any = useNavigate();
     const location = useLocation();
+    const { t } = useTranslation();
+
     const path = location?.pathname || "";
 
     return (
@@ -37,7 +41,7 @@ function Header(props: any) {
                     })}
                 </ul>
 
-                <Input isHasIcon value={keySearch} onChange={onSearch} placeholder="Vui lòng nhập tag" />
+                <Input isHasIcon value={keySearch} onChange={onSearch} placeholder={t("placeholder_search")} />
             </div>
         </div>
     )

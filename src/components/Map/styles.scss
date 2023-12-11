@@ -12,6 +12,10 @@
     }
 }
 
+.leaflet-control-zoom.leaflet-bar.leaflet-control {
+    display: none;
+}
+
 .map-tiles-circle {
     aspect-ratio: "unset";
     border-radius: "unset";

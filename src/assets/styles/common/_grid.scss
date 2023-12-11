@@ -23,7 +23,7 @@
   .#{$prefix} {
     &-col-#{$i} {
       @include col;
-      width: calc(($i * 100%) / 12);
+      width: calc(($i * 100%) / 12) !important;
     }
   }
 }

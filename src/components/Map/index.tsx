@@ -2,9 +2,6 @@ import { MapContainer, Marker, TileLayer } from "react-leaflet";
 import L from 'leaflet';
 
 import "./styles.scss";
-
-
-
 import icon from 'leaflet/dist/images/marker-icon.png';
 
 const RMapContainer: any = MapContainer;
@@ -26,7 +23,8 @@ const Map = (props: any) => {
     <RMapContainer
       center={position}
       zoom={zoomLevel}
-      scrollWheelZoom={false}
+      scrollWheelZoom={true}
+      doubleClickZoom={false}
       className={`map-tiles ${customClass}`}
     >
       <TileLayer
