@@ -3,6 +3,7 @@ import { useLocalStorage } from "./hooks/useStorage/useStorage";
 import { routes } from "./routes/routes";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { Provider } from "./AppProvider/context";
+import PageNotFound from "./pages/NotFound";
 
 function App() {
   const [language, setLanguage] = useLocalStorage("language");
@@ -25,6 +26,9 @@ function App() {
             {routes.map((route: any) => {
               return <Route path={route.path} element={route.element} />
             })}
+
+
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </Router>
       </Provider>
