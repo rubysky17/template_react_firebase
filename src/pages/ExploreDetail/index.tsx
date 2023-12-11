@@ -69,7 +69,7 @@ function ExploreDetailPage() {
                             </div>
                         </div>
 
-                        <div className="md-col-12 md-md-col-6 md-pr-30 md-mb-30 md-md-mb-0">
+                        <div className="md-col-12 md-md-col-6 md-pr-30 md-mb-30 md-md-mb-12">
                             <p className='md-fs-14 md-md-fs-16 md-mb-0 md-font-primary md-fw-100' style={{
                                 lineHeight: "18px"
                             }} dangerouslySetInnerHTML={{
@@ -95,7 +95,6 @@ function ExploreDetailPage() {
                         </div>
                     </div>
             }
-
 
 
             <Lightbox open={indexPicture !== -1 ? true : false}

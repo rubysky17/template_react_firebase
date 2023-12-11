@@ -33,7 +33,7 @@
     .#{$prefix}-xs {
       &-col-#{$i} {
         @include col;
-        width: calc(($i * 100%) / 12);
+        width: calc(($i * 100%) / 12) !important;
       }
     }
   }
@@ -44,7 +44,7 @@
     .#{$prefix}-sm {
       &-col-#{$i} {
         @include col;
-        width: calc(($i * 100%) / 12);
+        width: calc(($i * 100%) / 12) !important;
       }
     }
   }
@@ -55,7 +55,7 @@
     .#{$prefix}-md {
       &-col-#{$i} {
         @include col;
-        width: calc(($i * 100%) / 12);
+        width: calc(($i * 100%) / 12) !important;
       }
     }
   }
@@ -66,7 +66,7 @@
     .#{$prefix}-lg {
       &-col-#{$i} {
         @include col;
-        width: calc(($i * 100%) / 12);
+        width: calc(($i * 100%) / 12) !important;
       }
     }
   }
@@ -77,7 +77,7 @@
     .#{$prefix}-xl {
       &-col-#{$i} {
         @include col;
-        width: calc(($i * 100%) / 12);
+        width: calc(($i * 100%) / 12) !important;
       }
     }
   }
@@ -88,7 +88,7 @@
     .#{$prefix}-2xl {
       &-col-#{$i} {
         @include col;
-        width: calc(($i * 100%) / 12);
+        width: calc(($i * 100%) / 12) !important;
       }
     }
   }
