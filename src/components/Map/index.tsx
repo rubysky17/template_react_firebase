@@ -29,7 +29,7 @@ const Map = (props: any) => {
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url='https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png'
+        url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
       />
 
       <RMarker position={[10.7910566, 106.691152]}></RMarker>
