@@ -76,7 +76,9 @@ function MenuList() {
                             width: 100,
                             borderRadius: "50%",
                             overflow: 'hidden',
-                            zIndex: 999
+                            zIndex: 3,
+                            WebkitMaskImage: `-webkit-radial-gradient(circle, white, black)`,
+                            WebkitTransform: `translateZ(0)`,
                         }}>
                             <Map />
                         </div>
@@ -105,7 +107,7 @@ function MenuList() {
                 })}
             </>}
 
-        </div>
+        </div >
     )
 }
 
