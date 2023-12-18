@@ -13,6 +13,7 @@
     "@types/react-dom": "^18.2.15",
     "firebase": "^8.10.1",
     "leaflet": "^1.8.0",
+    "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "rc-dialog": "^9.3.4",
     "react": "^18.2.0",
