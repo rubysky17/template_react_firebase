@@ -82,7 +82,7 @@ function MenuList() {
                                     left: "50%",
                                     transform: "translate(-50%, -50%)",
                                 }}>
-                                    <Map />
+                                    <Map customClass={"md-border-circle"} />
                                 </div>
 
                                 {item.type === 'image' ? <h2 className="md-font-secondary md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
