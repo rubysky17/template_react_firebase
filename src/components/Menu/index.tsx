@@ -72,18 +72,7 @@ function MenuList() {
                             }} />}
                         </AspectRatioContainer> :
                             <AspectRatioContainer aspectRatio={1 / 1}>
-                                <div style={{
-                                    borderRadius: '50%',
-                                    width: "100%",
-                                    height: "100%",
-                                    overflow: 'hidden',
-                                    position: 'relative',
-                                    top: "50%",
-                                    left: "50%",
-                                    transform: "translate(-50%, -50%)",
-                                }}>
-                                    <Map customClass={"md-border-circle"} />
-                                </div>
+                                <Map customClass={"md-border-circle md-custom-menu"} />
 
                                 {item.type === 'image' ? <h2 className="md-font-secondary md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
                                     top: "50%",
