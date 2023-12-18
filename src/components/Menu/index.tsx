@@ -73,7 +73,7 @@ function MenuList() {
                         </AspectRatioContainer> :
                             <AspectRatioContainer aspectRatio={1 / 1}>
                                 <div className={"md-border-circle md-custom-menu"}>
-                                    <Map customClass="md-border-circle" />
+                                    <Map />
                                 </div>
 
 
