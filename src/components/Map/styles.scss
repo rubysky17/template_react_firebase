@@ -5,6 +5,7 @@
 @media (prefers-color-scheme: dark) {
     .map-tiles {
         max-height: 100%;
+        overflow: hidden;
         filter: var(--map-tiles-filter, none);
 
         &>.leaflet-pane.leaflet-map-pane>.leaflet-marker-icon {
