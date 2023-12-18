@@ -1,39 +1,31 @@
 import { useEffect, useRef } from 'react';
-const _ = require('lodash');
 
 const AspectRatioContainer = ({ aspectRatio, className, children }: any) => {
     const containerRef = useRef<any>();
 
-
-    const updateHeight = () => {
-        if (containerRef.current) {
-            containerRef.current.style.height = `${containerRef.current.offsetWidth / aspectRatio}px`;
-        }
-    };
-
-    const debouncedUpdateHeight = _.debounce(updateHeight, 100);
-
-
     useEffect(() => {
-        if (containerRef.current && 'ResizeObserver' in window) {
-            const resizeObserver = new ResizeObserver(debouncedUpdateHeight);
-            resizeObserver.observe(containerRef.current);
+        const updateHeight = () => {
+            if (containerRef.current) {
+                containerRef.current.style.height = `${containerRef.current.offsetWidth / aspectRatio
+                    }px`;
+            }
+        };
 
-            return () => {
-                resizeObserver.disconnect();
-            };
-        } else {
-            window.addEventListener('resize', debouncedUpdateHeight);
+        // Khởi tạo chiều cao ban đầu
+        updateHeight();
 
-            return () => {
-                window.removeEventListener('resize', debouncedUpdateHeight);
-            };
-        }
-    }, [aspectRatio, debouncedUpdateHeight]);
+        // Cập nhật lại chiều cao khi cửa sổ trình duyệt thay đổi kích thước
+        window.addEventListener('resize', updateHeight);
+
+        // Cleanup effect khi component unmount
+        return () => {
+            window.removeEventListener('resize', updateHeight);
+        };
+    }, [aspectRatio]);
 
     return (
         <div ref={containerRef} style={{ position: 'relative', width: '100%' }} className={className}>
-            <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
+            <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', overflow: 'hidden' }}>
                 {children}
             </div>
         </div>
