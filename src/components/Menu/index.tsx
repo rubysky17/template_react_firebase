@@ -60,6 +60,7 @@ function MenuList() {
                                 top: "50%",
                                 left: '50%',
                                 transform: `translate(-50%, -50%)`,
+                                zIndex: 3
                             }}>{item.name}</h2> : <h2 className="md-font-secondary md-fs-10 md-md-fs-14 md-lg-fs-16 md-text-center md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
                                 top: "50%",
                                 left: '50%',
@@ -71,10 +72,8 @@ function MenuList() {
                                 navigate(item.path);
                             }} />}
                         </AspectRatioContainer> :
-                            <AspectRatioContainer aspectRatio={1 / 1}>
-                                <div className={"md-border-circle md-custom-menu"}>
-                                    <Map />
-                                </div>
+                            <AspectRatioContainer aspectRatio={1 / 1} className={"md-border-circle md-custom-menu"}>
+                                <Map />
 
 
                                 {item.type === 'image' ? <h2 className="md-font-secondary md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
