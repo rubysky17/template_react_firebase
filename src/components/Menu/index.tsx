@@ -76,7 +76,7 @@ function MenuList() {
                             width: 100,
                             borderRadius: "50%",
                             overflow: 'hidden',
-                            zIndex: 2
+                            zIndex: 999
                         }}>
                             <Map />
                         </div>
