@@ -18,13 +18,11 @@
     -moz-border-radius: 50%;
     -khtml-border-radius: 50%;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    // padding: 10px;
     display: 'inline-block';
     z-index: 1;
-    overflow: hidden
+    overflow: hidden;
+    -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
+    -webkit-transform: translateZ(0);
 }
 
 .md-cursor-pointer {

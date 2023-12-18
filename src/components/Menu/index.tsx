@@ -71,37 +71,26 @@ function MenuList() {
 
                                 navigate(item.path);
                             }} />}
-                        </AspectRatioContainer> : <div style={{
-                            height: 100,
-                            width: 100,
-                            borderRadius: "50%",
-                            overflow: 'hidden',
-                            zIndex: 3,
-                            WebkitMaskImage: `-webkit-radial-gradient(circle, white, black)`,
-                            WebkitTransform: `translateZ(0)`,
-                        }}>
-                            <Map />
-                        </div>
-                            // <AspectRatioContainer aspectRatio={1 / 1} className={"md-border-circle md-custom-menu"}>
-                            //     <Map />
+                        </AspectRatioContainer> :
+                            <AspectRatioContainer aspectRatio={1 / 1} className={"md-border-circle md-custom-menu"}>
+                                <Map />
 
+                                {item.type === 'image' ? <h2 className="md-font-secondary md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
+                                    top: "50%",
+                                    left: '50%',
+                                    transform: `translate(-50%, -50%)`,
+                                    fontSize: Math.floor(widthConfig * 0.07)
+                                }} >{item.name}</h2> : <h2 className="md-font-secondary md-fs-10 md-md-fs-14 md-lg-fs-16 md-text-center md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
+                                    top: "50%",
+                                    left: '50%',
+                                    transform: `translate(-50%, -50%)`,
+                                    zIndex: 3
+                                }} dangerouslySetInnerHTML={{ __html: item.detail }} onClick={() => {
+                                    dispatch(actions.setKeySearch(""));
 
-                            //     {item.type === 'image' ? <h2 className="md-font-secondary md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
-                            //         top: "50%",
-                            //         left: '50%',
-                            //         transform: `translate(-50%, -50%)`,
-                            //         fontSize: Math.floor(widthConfig * 0.07)
-                            //     }} >{item.name}</h2> : <h2 className="md-font-secondary md-fs-10 md-md-fs-14 md-lg-fs-16 md-text-center md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
-                            //         top: "50%",
-                            //         left: '50%',
-                            //         transform: `translate(-50%, -50%)`,
-                            //         zIndex: 3
-                            //     }} dangerouslySetInnerHTML={{ __html: item.detail }} onClick={() => {
-                            //         dispatch(actions.setKeySearch(""));
-
-                            //         navigate(item.path);
-                            //     }} />}
-                            // </AspectRatioContainer>
+                                    navigate(item.path);
+                                }} />}
+                            </AspectRatioContainer>
                         }
                     </div>
                 })}
