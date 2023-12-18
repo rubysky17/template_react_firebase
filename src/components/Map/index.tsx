@@ -26,7 +26,6 @@ const Map = (props: any) => {
       scrollWheelZoom={true}
       doubleClickZoom={false}
       className={`map-tiles ${customClass}`}
-      height={30}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
