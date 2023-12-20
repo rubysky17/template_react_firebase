@@ -114,3 +114,11 @@
         position: unset !important
     }
 }
+
+.md-object-fit-contain {
+    object-fit: contain;
+}
+
+.md-object-fit-cover {
+    object-fit: cover;
+}

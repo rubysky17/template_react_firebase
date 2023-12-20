@@ -2,10 +2,10 @@ import { useLocalStorage } from "../useStorage/useStorage";
 import * as translations from "./translations";
 
 export default function useTranslation() {
-  const [language, setLanguage] = useLocalStorage("language", "vi");
+  const [language, setLanguage] = useLocalStorage("language", "en");
   const [fallbackLanguage, setFallbackLanguage] = useLocalStorage(
     "fallbackLanguage",
-    "vi"
+    "en"
   );
 
   const translate = (key) => {

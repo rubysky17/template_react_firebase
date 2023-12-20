@@ -16,7 +16,7 @@ function SampleImage(props: any) {
 
             </div>
 
-            <img src={src} alt={src} />
+            <img src={src} alt={src} className="md-object-fit-cover" />
         </div>
     )
 }

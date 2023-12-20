@@ -5,7 +5,7 @@ import useWindowDimensions from "../../hooks/useWindowDimension/useWindowDimensi
 
 import { FaInstagram } from "react-icons/fa6";
 import { BiLogoFacebook } from "react-icons/bi";
-import { SiZalo } from "react-icons/si";
+// import { SiZalo } from "react-icons/si";
 
 import "./styles.scss";
 
@@ -21,10 +21,10 @@ function ContactPage() {
             icon: <BiLogoFacebook size={30} color="black" />,
             href: "https://www.facebook.com/people/WOA-Architects/100053104308865/"
         },
-        {
-            icon: <SiZalo size={30} color="black" />,
-            href: "https://zalo.me/0909357569"
-        }
+        // {
+        //     icon: <SiZalo size={30} color="black" />,
+        //     href: "https://zalo.me/0909357569"
+        // }
     ]
     return (
         <div className="md-mb-20 md-row md-items-start md-justify-between md-mt-0 md-md-mt-50 md-lg-mt-100" style={{

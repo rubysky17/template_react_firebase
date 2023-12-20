@@ -9,6 +9,7 @@ import { MENU_CONSTANT } from "../../constants/constants"
 import Map from "../Map"
 import AspectRatioContainer from "../AspectRatio";
 import { getList } from "../../constants/firebase";
+import useTranslation from "../../hooks/useTranslate/useTranslation";
 
 function MenuList() {
     const { dispatch, actions } = useStore();
@@ -18,6 +19,7 @@ function MenuList() {
     const [isLoadingList, setIsLoadingList] = useState(false);
 
     const [listMenu, setListMenu] = useState([]);
+    const { t } = useTranslation();
 
     useEffect(() => {
         setIsLoadingList(true)
@@ -38,19 +40,19 @@ function MenuList() {
 
     return (
         <div style={{
-            height: width >= 992 ? "70%" : "80%",
+            height: width >= 992 ? "70%" : "calc(80% - 20px)",
             overflow: "hidden"
         }} className={`${width >= 992 ? "md-row  md-p-20" : "md-d-flex md-justify-between md-items-center md-flex-col md-p-10"}`} ref={refMenu}>
             {!isLoadingList && <>
                 {MENU_CONSTANT.map((item: any, idx: any) => {
                     const imageFromDb: any = listMenu.find((y: any) => y.name === item.name.toLowerCase());
 
-                    return <div className="md-lg-col-4 md-relative md-p-10 md-flex md-justify-center md-items-center" key={idx} style={{
+                    return <div className="md-lg-col-4 md-relative md-xl-p-30 md-2xl-p-60 md-md-p-20 md-p-10 md-flex md-justify-center md-items-center" key={idx} style={{
                         height: widthConfig,
                         width: widthConfig
                     }}>
                         {item.type === 'image' ? <AspectRatioContainer aspectRatio={1 / 1} >
-                            <img alt="img_menu" src={imageFromDb?.image} className="md-custom-menu md-cursor-pointer" onClick={() => {
+                            <img alt="img_menu" src={imageFromDb?.image} className="md-object-fit-cover md-custom-menu md-cursor-pointer" onClick={() => {
                                 dispatch(actions.setKeySearch(""));
 
                                 navigate(item.path);
@@ -61,7 +63,7 @@ function MenuList() {
                                 left: '50%',
                                 transform: `translate(-50%, -50%)`,
                                 zIndex: 3
-                            }}>{item.name}</h2> : <h2 className="md-font-secondary md-fs-10 md-md-fs-14 md-lg-fs-16 md-text-center md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
+                            }}>{t(item.name)}</h2> : <h2 className="md-font-secondary md-fs-10 md-md-fs-14 md-lg-fs-16 md-text-center md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
                                 top: "50%",
                                 left: '50%',
                                 transform: `translate(-50%, -50%)`,

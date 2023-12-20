@@ -146,7 +146,7 @@ function DesignerWrapper() {
                     {data?.map((item: any, idx: any) => {
                         return <div className="md-col-4 md-relative md-p-10 md-flex md-justify-center md-items-center" key={idx} >
                             <AspectRatioContainer aspectRatio={1 / 1} >
-                                <img alt="img_menu" src={item.image} className="md-custom-menu md-cursor-pointer" />
+                                <img alt="img_menu" src={item.image} className="md-object-fit-cover md-custom-menu md-cursor-pointer" />
 
                                 {item.type === 'image' ? <h2 className="md-font-secondary md-fs-10 md-md-fs-14 md-lg-fs-16 md-cursor-pointer md-text-color-white md-absolute md-mb-0" style={{
                                     top: "50%",

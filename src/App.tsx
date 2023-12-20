@@ -12,7 +12,7 @@ function App() {
     // ! Kiểm tra first load page là ngon ngữ gì
     // * undefined => mặc định 'vi'
     if (typeof language === "undefined" || !language) {
-      setLanguage("vi");
+      setLanguage("en");
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps

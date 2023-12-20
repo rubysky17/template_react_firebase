@@ -79,7 +79,7 @@ function ProjectDetailPage() {
                                 <img src={imgSrc} style={{
                                     width: '100%',
                                     height: '100%',
-                                }} alt="img_detai_project" className="md-cursor-pointer " />
+                                }} alt="img_detai_project" className="md-object-fit-cover md-cursor-pointer " />
                             </AspectRatioContainer>
 
                         </div>

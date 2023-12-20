@@ -36,7 +36,7 @@ function Header(props: any) {
 
                                 navigate(menu.path)
                             }}
-                        >{menu.name}
+                        >{t(menu.name)}
                         </li>
                     })}
                 </ul>
