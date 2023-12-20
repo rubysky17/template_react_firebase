@@ -30,7 +30,7 @@ function Header(props: any) {
                 <ul className="md-header-menu">
                     {MENU_CONSTANT.map((menu: any, idx: any) => {
                         return <li key={`${idx}`} className={`${path.includes(menu.name.toLowerCase()) ? "md-header-menu-item-active " : ""
-                            } md-header-menu-item ${MENU_CONSTANT.length - 1 !== idx ? "md-mr-40" : ""}`}
+                            } md-header-menu-item ${MENU_CONSTANT.length - 1 !== idx ? "md-mr-44" : ""}`}
                             onClick={() => {
                                 dispatch(actions.setKeySearch(""));
 
