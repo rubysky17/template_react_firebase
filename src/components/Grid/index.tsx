@@ -15,16 +15,16 @@ function GridSystem(props: any) {
         navigate(`${id}`)
     }
 
-    let collections = '', name = '', tag = "";
+    let banner = '', name = '', tag = "";
 
     if (type === 'project') {
-        collections = 'project_collection';
+        banner = 'project_banner';
         name = 'project_name';
         tag = 'project_tag'
     }
 
     if (type === 'explore') {
-        collections = 'explore_collection';
+        banner = 'explore_banner';
         name = 'explore_name';
         tag = 'explore_tag'
     };
@@ -42,8 +42,8 @@ function GridSystem(props: any) {
                                 <div className="postlist_item_images md-d-flex md-justify-center md-items-center" style={{
                                     objectFit: "contain",
                                 }}>
-                                    <img src={item[collections][0]} style={{
-                                        width: `calc(100%*min(1, ${dimensionURL(item[collections][0]).width / dimensionURL(item[collections][0]).height}))`,
+                                    <img src={item[banner]} style={{
+                                        width: `calc(100%*min(1, ${dimensionURL(item[banner]).width / dimensionURL(item[banner]).height}))`,
                                         height: ''
                                     }} onClick={() => {
                                         handleClickDetail(item.id)

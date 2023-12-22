@@ -33,7 +33,8 @@ function ExploreWrapper() {
             name: 'Tags',
             render: (value: any, id: any): ReactNode => {
                 return <div className='md-d-flex' style={{
-                    overflowX: "hidden"
+                    overflowX: "hidden",
+                    flexWrap: "wrap"
                 }}>
                     {value?.explore_tag.length ? <>
                         {value?.explore_tag?.map((tag: any, idx: any) => {

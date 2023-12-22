@@ -50,6 +50,7 @@ const Form = forwardRef((props: any, ref) => {
     const HsetValue: any = setValue;
 
     const watchExploreBanner: any = Hwatch("explore_banner")
+    const watchProjectBanner: any = Hwatch("project_banner")
 
     useImperativeHandle(ref, () => ({
         resetFormValues() {
@@ -290,10 +291,17 @@ const Form = forwardRef((props: any, ref) => {
                                 return (
                                     <>
                                         {field.value.map((img: string, index: string) => {
-                                            return <SampleImage src={img} key={index} className="md-col-3" onRemove={(value: any) => {
-                                                let final = field.value.filter((y: any) => y !== value)
-                                                field.onChange(final);
-                                            }} />
+                                            return <SampleImage
+                                                showSelect src={img}
+                                                key={index} className="md-col-3" onRemove={(value: any) => {
+                                                    let final = field.value.filter((y: any) => y !== value)
+                                                    field.onChange(final);
+                                                }}
+                                                onSelect={(value: any) => {
+                                                    HsetValue("project_banner", value)
+                                                }}
+                                                isSelected={watchProjectBanner === img}
+                                            />
                                         })}
                                     </>
                                 );

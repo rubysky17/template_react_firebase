@@ -33,7 +33,9 @@ function ProjectWrapper() {
         {
             name: 'Tags',
             render: (value: any, id: any): ReactNode => {
-                return <div className='md-d-flex'>
+                return <div className='md-d-flex' style={{
+                    flexWrap: "wrap"
+                }}>
                     {value?.project_tag.length ? <>
                         {value?.project_tag?.map((tag: any, idx: any) => {
                             return <>
@@ -143,6 +145,15 @@ function ProjectWrapper() {
 
         if (!values.project_collection.length) {
             return toast.error("Vui lòng upload hình ảnh", {
+                position: "bottom-right",
+                autoClose: 2000,
+                hideProgressBar: true,
+                theme: 'dark'
+            })
+        }
+
+        if (!values.project_banner.length) {
+            return toast.error("Vui lòng chọn hình ảnh chính", {
                 position: "bottom-right",
                 autoClose: 2000,
                 hideProgressBar: true,
