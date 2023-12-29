@@ -26,7 +26,7 @@ function Header(props: any) {
                 navigate("/")
             }} alt="image_logo" />
 
-            <div className="md-ml-30">
+            <div className="md-ml-30 md-d-flex md-flex-col md-header-wrapper-menu">
                 <ul className="md-header-menu">
                     {MENU_CONSTANT.map((menu: any, idx: any) => {
                         return <li key={`${idx}`} className={`${path.includes(menu.name.toLowerCase()) ? "md-header-menu-item-active " : ""

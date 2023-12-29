@@ -108,10 +108,25 @@ const Form = forwardRef((props: any, ref) => {
         for (let i = 0; i < files.length; i++) {
             const image = files[i];
 
+            if (image.size > 5 * 1024 * 1024) {
+                canUploadFile = false;
+
+                break;
+            }
+
             if (extension.test(image.name)) {
                 canUploadFile = true;
                 uploadList.push(image);
             }
+        }
+
+        if (!canUploadFile) {
+            return toast.error("Đã vượt quá giới hạn cho phép 5MB", {
+                position: "bottom-right",
+                autoClose: 2000,
+                hideProgressBar: true,
+                theme: 'dark'
+            })
         }
 
         if (canUploadFile) {

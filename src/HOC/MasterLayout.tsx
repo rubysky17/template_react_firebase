@@ -76,9 +76,9 @@ const MasterLayout = ({ children }: any) => {
             <div className="wrapper-container">
                 <Header keySearch={keySearch} onSearch={handleChangeSearch} />
 
-                {debouncedValue.length ? <div className="md-px-20 md-md-px-30 md-bg-secondary">
+                {debouncedValue.length ? <div className="md-px-10 md-md-px-30 md-bg-secondary">
                     <SearchPage keySearch={debouncedValue} />
-                </div> : <div className="md-px-20 md-md-px-30 md-bg-secondary">
+                </div> : <div className="md-px-10 md-md-px-30 md-bg-secondary">
                     {children}
                 </div>}
             </div>

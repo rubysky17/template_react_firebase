@@ -46,7 +46,7 @@ function ExploreDetailPage() {
                     <div className="md-row md-px-10 md-md-px-60">
                         <div className="md-col-12">
                             <img src={detailExplore.explore_banner} alt="explore_banner" style={{
-                                height: "30vh",
+                                height: "35vh",
                                 width: '100%',
                                 objectFit: "cover"
                             }} />

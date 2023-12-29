@@ -29,3 +29,9 @@
         }
     }
 }
+
+.md-header-wrapper-menu {
+    @media screen and (max-width: 768px) {
+        flex: 1;
+    }
+}
